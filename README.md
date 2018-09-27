@@ -8,11 +8,11 @@ I am a Computer Science major at [Western Oregon University](http://www.wou.edu/
 
 
 ## Code Storage
-I have repositories here: [GitHub](https://) and here: [BitBucket](https://). The later is mostly a back up for now, but will be transitioned into the main storage after CS460.
+I have repositories here: [GitHub](https://github.com/avisuano/CS460) and here: [BitBucket](https://bitbucket.org/avisuano15/cs460/src/master/). The later is mostly a back up for now, but will be transitioned into the main storage after CS460.
 
 ### Homework For CS460
 
-1. Homework [One](https://)
+1. Homework [One](https://github.com/avisuano/CS460/tree/master/HW1)
     - Requirements can be found [here](http://www.wou.edu/~morses/classes/cs46x/assignments/HW1.html).
     - Poor attempt to explain myself [here](https://).
 2. Homework [two](https://)
