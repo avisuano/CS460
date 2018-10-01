@@ -5,7 +5,7 @@ The requirements for this assignment can be found [here](http://www.wou.edu/~mor
 
 The repository of code can be found [here](https://github.com/avisuano/CS460/tree/master/HW1).
 
-Finally, the actual site can be found [here](https://avisuano.github.io/CS460/HW1/index.html).
+Finally, the actual site can be found [here](https://avisuano.github.io/CS460/HW1/main.html).
 
 ## Getting Started
 
