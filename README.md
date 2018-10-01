@@ -11,9 +11,10 @@ I have repositories here: [GitHub](https://github.com/avisuano/CS460) and here: 
 
 ### Homework For CS460
 
-1. Homework [One](https://github.com/avisuano/CS460/tree/master/HW1)
+1. Homework One
     - Requirements can be found [here](http://www.wou.edu/~morses/classes/cs46x/assignments/HW1.html).
-    - Poor attempt to explain myself [here](https://).
+    - The webpage can be found [here](https://avisuano.github.io/CS460/HW1/index.html)
+    - Attempt to explain what I did can be found [here](https://avisuano.github.io/CS460/HW1/README.md).
 2. Homework [two](https://)
     - Requirements can be found [here](http://www.wou.edu/~morses/classes/cs46x/assignments/HW2.html).
     - Another sad [attempt](https://) to explain.
