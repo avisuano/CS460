@@ -5,6 +5,8 @@ The requirements for this assignment can be found [here](http://www.wou.edu/~mor
 
 The repository of code can be found [here](https://github.com/avisuano/CS460/tree/master/HW1).
 
+Finally, the actual site can be found [here](https://avisuano.github.io/CS460/HW1/index.html).
+
 ## Getting Started
 
 To get started there was a good deal of downloading required. First Git Bash was installed, followed by going to GitHub and creating a repository. Finally I downloaded my preferred IDE, which is Atom. I also installed plugins such as the preview HTML and a few others. Most of the plugins just make life a little easier.
@@ -69,8 +71,8 @@ With the base files created and pushed, I began on the index page. Starting with
 </nav>
 ```
 
-I grabbed some random photos from Google image search and used a Latin text generator to fill in some text. After finishing up the main page, I moved on to the about page. I ended up making this page one for lists, which were updated on the navbar, but not the file name.
-Created two columns and then used an description list and ordered list.
+I grabbed some random photos from Google image search and used a Latin text generator to fill in some text. After finishing up the main page, I moved on to the about page. I ended up making this page for lists, which were updated on the navbar, but I didn't rename the file. Partly because I forgot, but also because all the links were working and didn't want to risk breaking something.
+I created two columns and two lists: a description list and an ordered list.
 
 ```html
 <div class="row">
@@ -102,7 +104,7 @@ Created two columns and then used an description list and ordered list.
 </div>
 ```
 
-When finished with about (lists) page, I moved on to the contacts pages. This time I decided to use bootstrap again to create a generic table with hover highlighting. I then just filled in the rows and columns with fake names, numbers and email addresses.
+When finished with the about (lists) page, I moved on to the contacts pages. This time I decided to use bootstrap again to create a generic table with hover highlighting. I then just filled in the rows and columns with fake names, numbers and email addresses.
 
 ```html
 <table class="table table-hover table-#efefef">
@@ -153,4 +155,4 @@ p {
 }
 ```
 
-After finishing up the pages I started work on this blog for homework one, and updated the links for the gateway blog of my work. I pushed everything to both repos and then began the testing of all the pages. I had to go back a few times to correct spellings and broken links. Fortunately, I was actually able to remember how most of this was supposed to go.
+After finishing up the pages I started work on this blog for homework one, and updated the links for the gateway blog of my work. I pushed everything to both repos and then began the testing of all the pages. I had to go back a few times to correct spellings and broken links. Fortunately, I was actually able to remember how most of this was supposed to go. I then made sure my GitHub pages were set up, and again checked that all the links were updated and working.
