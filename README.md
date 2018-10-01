@@ -4,8 +4,7 @@ This is a collection of my poor attempt to code.
 
 ## About Me
 
-I am a Computer Science major at [Western Oregon University](http://www.wou.edu/). I have some general IT experience, three years as a Cyber Network Operator ([MOS 0651](http://mosmanual.com/pages/mos/06/0651.php)) in the United States Marine Corps. There I worked with Cisco devices, Windows Server 2008 R2 and Exchange Server. I was also able to complete a CompTIA Security+ certification. I was working towards a CCNA certification, but due to circumstances I was forced to drop that path for now. The transition from the USMC to school, well, mostly coding, has been difficult. Eventually I would like to combine my major in Computer Science and my minor in Earth System Science, and work towards developing green technology. This of course, requires me to become proficient at coding.
-
+I am a Computer Science major at [Western Oregon University](http://www.wou.edu/). I have some general IT experience, three years as a Cyber Network Operator ([MOS 0651](http://mosmanual.com/pages/mos/06/0651.php)) in the United States Marine Corps.
 
 ## Code Storage
 I have repositories here: [GitHub](https://github.com/avisuano/CS460) and here: [BitBucket](https://bitbucket.org/avisuano15/cs460/src/master/). The later is mostly a back up for now, but will be transitioned into the main storage after CS460.
