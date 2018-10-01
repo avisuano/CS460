@@ -13,7 +13,7 @@ I have repositories here: [GitHub](https://github.com/avisuano/CS460) and here: 
 1. **Homework One**
     - Requirements can be found [here](http://www.wou.edu/~morses/classes/cs46x/assignments/HW1.html).
     - The completed assignment can be found [here](https://avisuano.github.io/CS460/HW1/index.html).
-    - Explanation of what I did can be found [here](https://avisuano.github.io/CS460/HW1/README.md).
+    - Explanation of what I did can be found [here](https://avisuano.github.io/CS460/HW1/).
 2. **Homework Two**
     - Requirements can be found [here](http://www.wou.edu/~morses/classes/cs46x/assignments/HW2.html).
 3. **Homework Three**
