@@ -1,10 +1,14 @@
 ﻿using System;
 
-public interface IQueueInterface<T>
+
+namespace hw3.cs
 {
-    T push(T element);
+    public interface IQueueInterface<T>
+    {
+        T Push(T element);
 
-    T pop()  throw new QueueUnderflowException;
+        T Pop() throw new QueueUnderflowException;
 
-    bool isEmpty();
+    bool IsEmpty();
+    }
 }

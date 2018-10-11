@@ -1,14 +1,17 @@
 ﻿using System;
 
-public class QueueUnderflowExcpetion
+namespace hw3.cs
 {
-	public QueueUnderflowExcpetion()
-	{
-        base();
-	}
-
-    public QueueUnderflowExcpetion(string message)
+    public class QueueUnderflowExcpetion
     {
-        base(message);
+        public QueueUnderflowExcpetion()
+        {
+            base();
+        }
+
+        public QueueUnderflowExcpetion(string message)
+        {
+            base(message);
+        }
     }
 }
