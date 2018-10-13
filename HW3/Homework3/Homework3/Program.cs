@@ -23,7 +23,7 @@ namespace Homework3
             }
             catch (FormatException)
             {
-                Console.WriteLine(args[0] + " is not a valid number.");
+                Console.WriteLine("'"+args[0]+"'" + " is not a valid number.");
                 return;
             }
 
@@ -35,7 +35,7 @@ namespace Homework3
             {
                 for (int i = 0; i < maxLength - s.Count(); i++)
                 {
-                    Console.WriteLine(" ");
+                    Console.Write(" ");
                 }
                 Console.WriteLine(s);
             }
@@ -56,7 +56,7 @@ namespace Homework3
             {
                 return output;
             }
-
+        
             q.Push(new StringBuilder("1"));
 
             while (n-- > 0)
