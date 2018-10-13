@@ -1,7 +1,4 @@
-﻿using System;
-
-
-namespace Homework3
+﻿namespace Homework3
 {
     /// <summary>
     /// 
@@ -23,14 +20,14 @@ namespace Homework3
         /// </summary>
         /// <param name="element"></param>
         /// <returns></returns>
-        public T push(T element)
+        public T Push(T element)
         {
             if (element == null)
             {
-                throw new NullPointerException();
+                throw new System.ArgumentNullException();
             }
 
-            if (isEmpty())
+            if (IsEmpty())
             {
                 Node<T> tmp = new Node<T>(element, null);
                 rear = front = tmp;
@@ -44,13 +41,13 @@ namespace Homework3
             return element;
         }
 
-        public T pop()
+        public T Pop()
         {
-            T tmp = null;
+            T tmp = default;
 
-            if (isEmpty())
+            if (IsEmpty())
             {
-                throw new QueueUnderflowException("The queue is empty");
+                throw new QueueUnderflowExcpetion("The queue is empty");
             }
 
             else if (front == rear)
@@ -69,7 +66,7 @@ namespace Homework3
             return tmp;
         }
 
-        public bool isEmpty()
+        public bool IsEmpty()
         {
             if (front == null && rear == null)
             {
@@ -80,33 +77,6 @@ namespace Homework3
             {
                 return false;
             }
-        }
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public interface IQueueInterface<T>
-    {
-        T push(T element);
-
-        T pop();
-
-        bool isEmpty();
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public class QueueUnderflowExcpetion : SystemException
-    {
-        public QueueUnderflowExcpetion()
-        {
-        }
-
-        public QueueUnderflowExcpetion(String message) : base(message)
-        {
         }
     }
 }

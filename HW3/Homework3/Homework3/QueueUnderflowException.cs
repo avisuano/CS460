@@ -1,8 +1,14 @@
 ﻿using System;
 
-public class Class1
+namespace Homework3
 {
-	public Class1()
-	{
-	}
+    /// <summary>
+    /// 
+    /// </summary>
+    public class QueueUnderflowExcpetion : SystemException
+    {
+        public QueueUnderflowExcpetion() : base() { }
+
+        public QueueUnderflowExcpetion(String message) : base(message) { }
+    }
 }

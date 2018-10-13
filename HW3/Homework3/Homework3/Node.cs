@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Homework3
+﻿namespace Homework3
 {
     /// <summary>
     /// 
@@ -11,11 +9,7 @@ namespace Homework3
         public T data;
         public Node<T> next;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="data"></param>
-        /// <param name="next"></param>
+        /// Basic Constructor for the Node class
         public Node(T data, Node<T> next)
         {
             this.data = data;

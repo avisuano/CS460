@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Homework3
 {
@@ -20,20 +19,21 @@ namespace Homework3
 
             try
             {
-                n = Integer.parseInt(args[0]);
+                n = int.Parse(args[0]);
             }
-            catch (NumberFormatException e)
+            catch (FormatException)
             {
                 Console.WriteLine(args[0] + " is not a valid number.");
                 return;
             }
 
-            LinkedList<String> output = generateBinaryRepresentationList(n);
+            LinkedList<String> output = Program.GenerateBinaryRepresentationList(n);
 
             int maxLength = output.Count;
-            for (String : output)
+
+            foreach (var s in output)
             {
-                for (int i = 0; i < maxLength - s.Length(); i++)
+                for (int i = 0; i < maxLength - s.Count(); i++)
                 {
                     Console.WriteLine(" ");
                 }
@@ -41,7 +41,12 @@ namespace Homework3
             }
         }
 
-        static LinkedList<String> gnerateBinaryRepresentationList(int n)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        static LinkedList<String> GenerateBinaryRepresentationList(int n)
         {
             LinkedQueue<StringBuilder> q = new LinkedQueue<StringBuilder>();
 
@@ -52,22 +57,23 @@ namespace Homework3
                 return output;
             }
 
-            q.push(new StringBuilder("1"));
+            q.Push(new StringBuilder("1"));
 
             while (n-- > 0)
             {
-                StringBuilder sb = q.pop();
+                StringBuilder sb = q.Pop();
 
                 output.AddLast(sb.ToString());
 
                 StringBuilder sbc = new StringBuilder(sb.ToString());
 
                 sb.Append('0');
-                q.push(sb);
+                q.Push(sb);
 
                 sbc.Append('1');
-                q.push(sbc);
+                q.Push(sbc);
             }
+            return output;
         }
     }
 }
