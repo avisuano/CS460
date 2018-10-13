@@ -18,6 +18,7 @@ I have repositories here: [GitHub](https://github.com/avisuano/CS460) and here: 
     - Requirements can be found [here](http://www.wou.edu/~morses/classes/cs46x/assignments/HW2.html).
 3. **Homework Three**
     - Requirements can be found [here](http://www.wou.edu/~morses/classes/cs46x/assignments/HW3.html).
+    - The rational used to complete the assignment can be found [here](https://avisuano.github.io/CS460/HW3/)
 4. **Homework Four**
     - Requirements can be found [here](http://www.wou.edu/~morses/classes/cs46x/assignments/HW4.html).
 5. **Homework Five**
