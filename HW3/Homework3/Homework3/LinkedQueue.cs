@@ -1,7 +1,7 @@
 ﻿namespace Homework3
 {
     /// <summary>
-    /// 
+    /// This is a singly Linked FIFO Queue
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class LinkedQueue<T> : IQueueInterface<T>
@@ -15,15 +15,12 @@
             rear = null;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="element"></param>
-        /// <returns></returns>
+        // Pushes a value into the queue
         public T Push(T element)
         {
             if (element == null)
             {
+                // C#'s version of the NullPointerException...?
                 throw new System.ArgumentNullException();
             }
 
@@ -41,8 +38,10 @@
             return element;
         }
 
+        // Start popping those values out of the queue
         public T Pop()
         {
+            // Problem area since Java can just use T tmp = null;
             T tmp = default;
 
             if (IsEmpty())
@@ -50,6 +49,7 @@
                 throw new QueueUnderflowExcpetion("The queue is empty");
             }
 
+            // If one item is in the queue
             else if (front == rear)
             {
                 tmp = front.data;
@@ -57,6 +57,7 @@
                 rear = null;
             }
 
+            // This would be the general case
             else
             {
                 tmp = front.data;
@@ -66,6 +67,7 @@
             return tmp;
         }
 
+        // Simple test to make sure the queue has something in it
         public bool IsEmpty()
         {
             if (front == null && rear == null)

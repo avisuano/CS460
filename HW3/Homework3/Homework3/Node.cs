@@ -1,9 +1,9 @@
 ﻿namespace Homework3
 {
     /// <summary>
-    /// 
+    /// Singly linked node class
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">The data being stored (numbers)</typeparam>
     public class Node<T>
     {
         public T data;
