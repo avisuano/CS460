@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -24,37 +26,37 @@ namespace Homework4.Controllers
         [HttpGet]
         public ActionResult MileConverter()
         {
+            string inputmiles = Request.QueryString["miles"];
+
+            if (Request.QueryString["mm"] != null)
+            {
+                decimal converted = Convert.ToDecimal(inputmiles) * Convert.ToDecimal(1609344);
+                string message = inputmiles + " miles is equal to: " + converted + "millimeters.";
+                ViewBag.ConversionResults = message;
+            }
+            else if (Request.QueryString["cm"] != null)
+            {
+                decimal converted = Convert.ToDecimal(inputmiles) * Convert.ToDecimal(160934.4);
+                string message = inputmiles + " miles is equal to: " + converted + "centimeters.";
+                ViewBag.ConversionResults = message;
+            }
+            else if (Request.QueryString["m"] != null)
+            {
+                decimal converted = Convert.ToDecimal(inputmiles) * Convert.ToDecimal(1609.344);
+                string message = inputmiles + " miles is equal to: " + converted + "meters.";
+                ViewBag.ConversionResults = message;
+            }
+            else if (Request.QueryString["km"] != null)
+            {
+                decimal converted = Convert.ToDecimal(inputmiles) * Convert.ToDecimal(1.609344);
+                string message = inputmiles + " miles is equal to: " + converted + "kilometers.";
+                ViewBag.ConversionResults = message;
+            }
+
+
             return View();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        [HttpPost]
-        [ActionName("MileConverter")]
-        public ActionResult MileConverterResult(FormCollection fc)
-        {
-            double miles = Convert.ToDouble(Request.Form["miles"]);
-
-            if (fc["toconvert"] == "mm")
-            {
-                ViewBag.results = miles * 1609344;
-            }
-            else if (fc["toconvert"] == "cm")
-            {
-                ViewBag.results = miles * 160934;
-            }
-            else if (fc["toconvert"] == "m")
-            {
-                ViewBag.results = miles * 1609.34;
-            }
-            else if (fc["toconvert"] == "km")
-            {
-                ViewBag.results = miles * 1.60934;
-            }
-            return View();
-        }
 
         /// <summary>
         /// 

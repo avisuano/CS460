@@ -3,19 +3,23 @@
 }
 
 <h1>Miles to Metric Converter</h1>
-<form action="/Home/MileConverter" method="post">
+
+
+<form action="/Home/MileConverter" method="get">
     <div class="row">
         <div class="column1">
-            <label for="miles">Miles: <input type="number" value="miles"></label>            
+            <label for="miles">Enter miles: </label>
+            <input type="number" step="any" name="miles" id="miles" />
         </div>
         <div class="column1">
-            <br />
-            <label for="convert">Select a unit to convert to: </label>
-            <h6><input type="radio" name="toconvert" value="mm"> milimeters </h6>
-            <h6><input type="radio" name="toconvert" value="cm"> centimeters</h6>
-            <h6><input type="radio" name="toconvert" value="m"> meters </h6>
-            <h6><input type="radio" name="toconvert" value="km"> kilometers </h6>
-            <input type="submit" name="submit" value="SUBMIT">
+            <h5>Select a unit: </h5>
+            <label for="millimeters"><input type="radio" name="units" value="mm" /> Millimeters</label> <br />
+            <label for="centimeters"><input type="radio" name="units" value="cm" /> Centimeters</label> <br />
+            <label for="meters"><input type="radio" name="units" value="m" /> Meters</label> <br />
+            <label for="kilometers"><input type="radio" name="units" value="km" /> Kilometers</label> <br />
+            <input type="submit" value="CONVERT" />
         </div>
     </div>
 </form>
+
+<h3> @ViewBag.ConversionResults </h3>
