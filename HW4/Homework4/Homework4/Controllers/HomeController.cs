@@ -70,5 +70,26 @@ namespace Homework4.Controllers
 
             return View();
         }
+
+
+        [HttpGet]
+        public ActionResult Color()
+        {       
+            ViewBag.ColorResult = false;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ColorResult(string FirstColor, string SecondColor)
+        {
+            FirstColor = Request.Form["FirstColor"];
+            SecondColor = Request.Form["SecondColor"];
+
+
+            Debug.WriteLine(FirstColor);
+            Debug.WriteLine(SecondColor);
+
+            return View();
+        }
     }
 }
