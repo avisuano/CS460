@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -97,9 +98,20 @@ namespace Homework4.Controllers
             FirstColor = Request.Form["FirstColor"];
             SecondColor = Request.Form["SecondColor"];
 
+            Color color1 = ColorTranslator.FromHtml(FirstColor);
+            Color color2 = ColorTranslator.FromHtml(SecondColor);
 
             Debug.WriteLine(FirstColor);
             Debug.WriteLine(SecondColor);
+            Debug.WriteLine(color1);
+            Debug.WriteLine(color2);
+
+            if (FirstColor != null && SecondColor != null)
+            {
+                ViewBag.ColorResult = true;
+                ViewBag.Color1 = "width:50px; height:50px; border: 1px soild #000; background:" + FirstColor;
+                ViewBag.Color2 = "width:50px; height:50px; border: 1px soild #000; background:" + SecondColor;
+            }
 
             return View();
         }

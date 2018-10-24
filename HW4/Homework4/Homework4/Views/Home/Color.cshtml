@@ -8,17 +8,17 @@
 
 <h6>Please use the hexidecimal form (#FFFAFA)</h6>
     <div>
-        @Html.Label("firstcolor", "First Color: ")
+        @Html.Label("firstcolor", "First Color ")<br />
         @Html.TextBox("FirstColor", null, htmlAttributes: new { type = "text", pattern = "#[0-9a-fA-F]{3,6}", required = "required" })
     </div>
 
     <div>
-        @Html.Label("secondcolor", "Second Color: ")
+        @Html.Label("secondcolor", "Second Color ")<br />
         @Html.TextBox("SecondColor", null, htmlAttributes: new { type = "text", pattern = "#[0-9a-fA-F]{3,6}", required = "required" })
     </div>
     <br />
-    <input type="submit" value="Create Color" />
-    <br />
+    <input type="submit" value="New Color" />
+    <br/><br/>
 }
 
 @if (ViewBag.ColorResult)
