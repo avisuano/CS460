@@ -71,7 +71,10 @@ namespace Homework4.Controllers
             return View();
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult Color()
         {       
@@ -79,9 +82,18 @@ namespace Homework4.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="FirstColor"></param>
+        /// <param name="SecondColor"></param>
+        /// <returns></returns>
         [HttpPost]
-        public ActionResult ColorResult(string FirstColor, string SecondColor)
+        [ActionName("Color")]
+        public ActionResult Color(string FirstColor, string SecondColor)
         {
+            ViewBag.ColorResult = false;
+
             FirstColor = Request.Form["FirstColor"];
             SecondColor = Request.Form["SecondColor"];
 
