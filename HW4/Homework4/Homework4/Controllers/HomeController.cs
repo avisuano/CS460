@@ -54,6 +54,7 @@ namespace Homework4.Controllers
                     conversion = inputmiles * 1.609344;
                     ViewBag.ConversionResult = true;
                     break;
+                // Important to have this one... fixes a lot of errors
                 default:
                     conversion = -1;
                     break;
