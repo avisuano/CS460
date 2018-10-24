@@ -11,61 +11,61 @@ namespace Homework4.Controllers
     public class HomeController : Controller
     {
         /// <summary>
-        /// 
+        /// Start page
         /// </summary>
-        /// <returns></returns>
+        /// <returns>standard view</returns>
         public ActionResult Index()
         {
             return View();
         }
         
         /// <summary>
-        /// 
+        /// Takes user input in miles and converts that into a metric unit
         /// </summary>
-        /// <returns></returns>
+        /// <returns>converted miles</returns>
         [HttpGet]
         public ActionResult MileConverter()
         {
-            string inputmiles = Request.QueryString["miles"];
+            // This fixed many a View.Bag problem I was having
+            ViewBag.ConversionResult = false;
 
-            if (Request.QueryString["mm"] != null)
+            // Initialize the Query Strings and the conversion results variable
+            double inputmiles = Convert.ToDouble(Request.QueryString["inputmiles"]);
+            string units = Request.QueryString["units"];
+            double conversion;
+            
+            // Originally was using if/else if ... but switch case was much easier
+            // Also ran into many unreachable issues with if/else if
+            switch (units)
             {
-                decimal converted = Convert.ToDecimal(inputmiles) * Convert.ToDecimal(1609344);
-                string message = inputmiles + " miles is equal to: " + converted + "millimeters.";
-                ViewBag.ConversionResults = message;
-            }
-            else if (Request.QueryString["cm"] != null)
-            {
-                decimal converted = Convert.ToDecimal(inputmiles) * Convert.ToDecimal(160934.4);
-                string message = inputmiles + " miles is equal to: " + converted + "centimeters.";
-                ViewBag.ConversionResults = message;
-            }
-            else if (Request.QueryString["m"] != null)
-            {
-                decimal converted = Convert.ToDecimal(inputmiles) * Convert.ToDecimal(1609.344);
-                string message = inputmiles + " miles is equal to: " + converted + "meters.";
-                ViewBag.ConversionResults = message;
-            }
-            else if (Request.QueryString["km"] != null)
-            {
-                decimal converted = Convert.ToDecimal(inputmiles) * Convert.ToDecimal(1.609344);
-                string message = inputmiles + " miles is equal to: " + converted + "kilometers.";
-                ViewBag.ConversionResults = message;
+                case "mm":
+                    conversion = inputmiles * 1609344;
+                    ViewBag.ConversionResult = true;
+                    break;
+                case "cm":
+                    conversion = inputmiles * 160934.4;
+                    ViewBag.ConversionResult = true;
+                    break;
+                case "m":
+                    conversion = inputmiles * 1609.344;
+                    ViewBag.ConversionResult = true;
+                    break;
+                case "km":
+                    conversion = inputmiles * 1.609344;
+                    ViewBag.ConversionResult = true;
+                    break;
+                default:
+                    conversion = -1;
+                    break;
             }
 
+            // Used this for testing that parameters were being passed correctly
+            Debug.WriteLine(inputmiles);
+            Debug.WriteLine(conversion);
 
-            return View();
-        }
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public ActionResult Color()
-        {
-            ViewBag.Message = "Color Choser.";
+            // This is what gets returned to the page after the conversion is completed
+            string message = inputmiles + " miles converts to: " + conversion + units;
+            ViewBag.Results = message;
 
             return View();
         }

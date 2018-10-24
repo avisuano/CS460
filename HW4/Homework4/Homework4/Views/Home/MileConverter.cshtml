@@ -2,24 +2,34 @@
     ViewBag.Title = "Mile Converter";
 }
 
-<h1>Miles to Metric Converter</h1>
+<h3>Miles to Metric Converter</h3>
 
 
-<form action="/Home/MileConverter" method="get">
-    <div class="row">
+<div class="row">
+    
+    <form action="">
+
+        <!-- Miles input text field -->
         <div class="column1">
             <label for="miles">Enter miles: </label>
-            <input type="number" step="any" name="miles" id="miles" />
+            <input type="number" step="any" name="inputmiles" value="miles" required />
         </div>
-        <div class="column1">
-            <h5>Select a unit: </h5>
-            <label for="millimeters"><input type="radio" name="units" value="mm" /> Millimeters</label> <br />
-            <label for="centimeters"><input type="radio" name="units" value="cm" /> Centimeters</label> <br />
-            <label for="meters"><input type="radio" name="units" value="m" /> Meters</label> <br />
-            <label for="kilometers"><input type="radio" name="units" value="km" /> Kilometers</label> <br />
-            <input type="submit" value="CONVERT" />
-        </div>
-    </div>
-</form>
 
-<h3> @ViewBag.ConversionResults </h3>
+        <!-- Radio buttons to select metric unit -->
+        <div class="column1">
+            <h5>Select unit: </h5>
+            <label for="mm"><input type="radio" name="units" value="mm" /> Millimeters </label><br />
+            <label for="cm"><input type="radio" name="units" value="cm" /> Centimeters </label><br />
+            <label for="m"><input type="radio" name="units" value="m" /> Meters </label><br />
+            <label for="km"><input type="radio" name="units" value="km" /> Kilometers </label><br />
+            <input type="submit" name="Convert" value="CONVERT" />
+        </div>
+
+    </form>
+
+    <!-- Converstion results go here -->
+    @if (ViewBag.ConversionResult){
+        <h3 style="color:crimson">@ViewBag.Results</h3>
+    }
+
+</div>
