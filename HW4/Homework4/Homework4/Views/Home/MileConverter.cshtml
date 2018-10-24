@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Mile Converter";
+}
+
+<h3>Miles to Metric Converter</h3>
+
+
+<div class="row">
+    
+    <form action="">
+
+        <!-- Miles input text field -->
+        <div class="column1">
+            <label for="miles">Enter miles: </label>
+            <input type="number" step="any" name="inputmiles" value="miles" required />
+        </div>
+
+        <!-- Radio buttons to select metric unit -->
+        <div class="column1">
+            <h5>Select unit: </h5>
+            <label for="mm"><input type="radio" name="units" value="mm" /> Millimeters </label><br />
+            <label for="cm"><input type="radio" name="units" value="cm" /> Centimeters </label><br />
+            <label for="m"><input type="radio" name="units" value="m" /> Meters </label><br />
+            <label for="km"><input type="radio" name="units" value="km" /> Kilometers </label><br />
+            <input type="submit" name="Convert" value="CONVERT" />
+            <br />
+        </div>
+
+    </form>
+
+    <!-- Converstion results go here -->
+    @if (ViewBag.ConversionResult){
+        <h3 style="color:crimson">@ViewBag.Results</h3>
+    }
+
+</div>
