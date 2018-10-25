@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Color Choser";
+    ViewBag.Title = "Color Creator";
 }
 <h2>Let's play with colors</h2>
 
@@ -17,7 +17,7 @@
         @Html.TextBox("SecondColor", null, htmlAttributes: new { type = "text", pattern = "#[0-9a-fA-F]{3,6}", required = "required" })
     </div>
     <br />
-    <input type="submit" value="New Color" />
+    <input type="submit" class="btn btn-primary btn-lg" value="New Color" />
     <br/><br/>
 }
 
@@ -25,9 +25,9 @@
 {
     <div class="row">
         <div class="col-sm-7" style="@ViewBag.Color1"></div>
-        <div class="col-sm-7" style="width:50px; height: 50px;"><h2> + </h2></div>
+        <div class="col-sm-7" style="width:75px; height: 75px;"><h1> + </h1></div>
         <div class="col-sm-7" style="@ViewBag.Color2"></div>
-        <div class="col-sm-7" style="width:50px; height: 50px;"><h2> = </h2></div>
+        <div class="col-sm-7" style="width:75px; height: 75px;"><h1> = </h1></div>
         <div class="col-sm-7" style="@ViewBag.MixedColors"></div>
    </div>
 }

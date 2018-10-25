@@ -73,9 +73,9 @@ namespace Homework4.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Initial page a user will see when going to the color creator page
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The default landing page</returns>
         [HttpGet]
         public ActionResult Colors()
         {       
@@ -84,10 +84,10 @@ namespace Homework4.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Takes two colors from the user, breaks them into byte form and then combines those into a new color
         /// </summary>
-        /// <param name="FirstColor"></param>
-        /// <param name="SecondColor"></param>
+        /// <param name="FirstColor">Hexadecimal color from user</param>
+        /// <param name="SecondColor">Hexadecimal color from user</param>
         /// <returns></returns>
         [HttpPost]
         [ActionName("Colors")]
@@ -143,10 +143,12 @@ namespace Homework4.Controllers
             {
                 color_green = color1.G + color2.G;
             }
+
             // Take the alpha, red, blue, and green values and combine them into ARGB format
             // After being combined, they are repacked into a HTML format to be viewed
             string MixedColors = ColorTranslator.ToHtml(Color.FromArgb(color_alpha, color_red, color_blue, color_green));
 
+            // Testing to make sure the correct values are being passed to the controller
             Debug.WriteLine(FirstColor);
             Debug.WriteLine(SecondColor);
             Debug.WriteLine(color1);
@@ -157,9 +159,9 @@ namespace Homework4.Controllers
             if (FirstColor != null && SecondColor != null)
             {
                 ViewBag.ColorResult = true;
-                ViewBag.Color1 = "width:50px; height:50px; border: 1px soild #000; background:" + FirstColor;
-                ViewBag.Color2 = "width:50px; height:50px; border: 1px soild #000; background:" + SecondColor;
-                ViewBag.MixedColors = "width:50px; height:50px; border: 1px soild #000; background:" + MixedColors;
+                ViewBag.Color1 = "width:75px; height:75px; border: 1px soild #000; background:" + FirstColor;
+                ViewBag.Color2 = "width:75px; height:75px; border: 1px soild #000; background:" + SecondColor;
+                ViewBag.MixedColors = "width:75px; height:75px; border: 1px soild #000; background:" + MixedColors;
             }
 
             return View();
