@@ -138,13 +138,16 @@ public ActionResult Colors()
     ViewBag.ColorResult = false;
     return View();
 }
+```
 
+Creating the post view was ... pretty straight forward.
+```cs
 [HttpPost]
 [ActionName("Colors")]
 public ActionResult Colors(string FirstColor, string SecondColor)
 ```
 
-Creating the action name, meant that I would need to make thins any more complicated than they already were. Grabbing the user input was also fairly straight forward. It was very similar to the mile converter, just using ```Request.Form();``` instead of ```Request.QueryString```. The next step was to "translate" those strings into ARBG values that could be check and combined.
+Using an action name, meant that I wouldn't need to make things more complicated than they already were. Grabbing the user input was also fairly straight forward. It was very similar to the mile converter, just using ```Request.Form();``` instead of ```Request.QueryString```. The next step was to "translate" those strings into ARBG values that could be check and combined.
 
 ```cs
 // Grab the hexadecimal values from the user
