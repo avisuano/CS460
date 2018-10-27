@@ -19,7 +19,7 @@ git checkout hw4_main
 
 ### Part One -- Mile Converter
 
-The first step was to was to get the view set up. I started by putting everything in a div class to split the miles input section and the unit selector into columns. Getting the input box type to "number" and the ```step="any"``` allowed. The view page was pretty simple and quick to get set up.
+The first step was to was to get the view set up. I started by putting everything in a div class to split the miles input section and the unit selector into columns. Setting the input type to "number" and the ```step="any"``` allowed for all numerical values to be entered. The view page was pretty simple and quick to get set up.
 
 ```html
 <!-- Miles input text field -->
@@ -57,7 +57,7 @@ double inputmiles = Convert.ToDouble(Request.QueryString["inputmiles"]);
 string units = Request.QueryString["units"];
 ```
 
-One of the most biggest issues was with selecting the correct metric unit parameter. I initially was using if and else if statements, but was having a number of problems. Lots of code unreachable, not actually grabbing the specific metric unit. After many hours of browsing stack overflow, and scouring Dr. Google's knowledge, I decided to try the switch case method. This was far simpler to understand, and fixed most of the problems. Although, I did forget the default case, which lead to a great deal of hand-wringing that should have been avoided. When I made the decision to go with a switch case, I also realized I was wasting my time trying to convert the units parameter. I just needed to check which parameter (radio button) was selected.
+One of the most biggest issues was with selecting the correct metric unit parameter. I initially was using if and else-if statements, but was having a number of problems. Lots of code unreachable, not actually grabbing the specific metric unit, and often incorrect values being pushed to the view. After many hours of browsing stack overflow, and scouring Dr. Google's knowledge, I decided to try the switch case method. This was far simpler to understand, and fixed most of the problems. Although, I did forget the default case, which lead to a great deal of hand-wringing that should have been avoided. I just needed to check which parameter (radio button) was selected. It also helps to try and Convert.ToWhatever inside each case, just set the initial values to doubles and everything works smoothly.
 
 ```cs
 switch (units)
@@ -104,7 +104,7 @@ git checkout -b hw4_color
 git merge master
 ```
 
-Using html helpers for part two was fairly strait forward. The biggest issue was getting the pattern matching down. The next area was making sure the spacing was correct for when the colors would be pushed to the view.
+Using html helpers for part two was fairly straight forward. The biggest issue was getting the pattern matching down. The next area was making sure the spacing was correct for when the colors would be pushed to the view.
 
 ```cs
 @using (Html.BeginForm("Colors", "Home", FormMethod.Post))
@@ -166,7 +166,7 @@ I first tried to just slam the values together and then push those values to the
 
 ```cs
 // This is needed to check for values above 255 -- lots of errors if these aren't checked
-// Started with alpha...
+// Starting with the alpha values...
 if (color1.A + color2.A >= 255)
 {
     color_alpha = 255;
