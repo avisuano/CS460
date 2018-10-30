@@ -1,7 +1,17 @@
-﻿@{
+﻿@model IEnumerable<Homework5.Models.RequestModel>
+
+@{
     ViewBag.Title = "Request Order Form";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p></p>
+<table class="table">
+    <tr>
+        <td></td>
+    </tr>
+
+
+@foreach (var item in Model)
+{
+
+}
+</table>
