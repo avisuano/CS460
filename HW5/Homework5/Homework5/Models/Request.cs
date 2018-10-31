@@ -6,9 +6,8 @@ using System.Web;
 
 namespace Homework5.Models
 {
-    public class RequestModel
+    public class Request
     {
-        [Required]
         public int ID { get; set; }
 
         [Required]
@@ -28,25 +27,21 @@ namespace Homework5.Models
 
         [Required]
         [StringLength(64)]
-        [Display(Name = "Apartment Building")]
+        [Display(Name = "Apartment Name")]
         public string Apt_Name { get; set; }
 
         [Required]
-        [Display(Name = "Apartment Number")]
-        public int Unit { get; set; }
-
-        [Required]
-        [Display(Name = "Request Explanation")]
-        public string Request { get; set; }
+        [Display(Name = "Request for maintanence")]
+        public string Req_Box { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
-        [Display(Name = "Date Request was Submitted")]
+        [Display(Name = "Date Requests")]
         public DateTime Req_Date { get; set; }
 
         public override string ToString()
         {
-            return $"{base.ToString()}: {FirstName} {LastName} {Phone} {Apt_Name} {Unit} {Request} {Req_Date}";
+            return $"(base.ToString()): {FirstName} {LastName} {Phone} {Apt_Name} {Req_Box} {Req_Date}";
         }
     }
 }
