@@ -1,52 +1,70 @@
-﻿
+﻿@model Homework5.Models.Request
+
 @{
     ViewBag.Title = "SubmitRequest";
 }
-@model Homework5.Models.Request
 
-<h2>Request for Maintenance Form</h2>
+<h2>Request for Maitenance Form</h2>
 
+<!-- Form to submit to the database -->
 @using (Html.BeginForm())
 {
-
-    <div class="container-fluid">
-        <div class="column1">
-            @Html.LabelFor(s => s.FirstName)<br />
-            @Html.EditorFor(s => s.FirstName, new { htmlAttributes = new { @class = "form-control" } })<br />
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div>
+        <!-- First Name -->
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
         </div>
-        <div class="column1">
-            @Html.LabelFor(s => s.LastName)<br />
-            @Html.EditorFor(s => s.LastName, new { htmlAttributes = new { @class = "form-control" } })<br />
+        <!-- Last Name -->
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
         </div>
-        <div class="column1">
-            @Html.LabelFor(s => s.Phone)<br />
-            @Html.EditorFor(s => s.Phone, new { htmlAttributes = new { @class = "form-control", @maxlength="10" } })<br />
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="column2">
-            @Html.LabelFor(s => s.Apt_Name)<br />
-            @Html.EditorFor(s => s.Apt_Name, new { htmlAttributes = new { @class = "form-control" } })<br />
-        </div>
-        <div class="column2">
-            @Html.LabelFor(i => i.Unit)<br />
-            @Html.EditorFor(i => i.Unit)<br />
+        <!-- Phone Number, max of 10 digits -->
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", @type = "number", @maxlength = "10" } })
         </div>
     </div>
-
-    <div class="container-fluid">
-        <div class="column3">
-            @Html.LabelFor(s => s.Req_Box)<br />
-            @Html.EditorFor(s => s.Req_Box, new { htmlAttributes = new { @class = "form-control" } })<br />
+    <div>
+        <!-- Apartment Name -->
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.Apt_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.Apt_Name, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <!-- Unit Number, max of 4 digits-->
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.Unit, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.Unit, new { htmlAttributes = new { @class = "form-control", @type = "number", @maxlength = "4" } })
         </div>
     </div>
-
-    <div class="column3">
-        @Html.LabelFor(d => d.Req_Date)
+    <!-- Brief explanation of the request -->
+    <div class="col-md-4">
+        @Html.LabelFor(model => model.Req_Box, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.Req_Box, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Req_Box, "", new { @class = "text-danger" })
+    </div>
+    <!-- Date of request -->
+    <div class="col-md-4">
+        @Html.LabelFor(d => d.Req_Date, htmlAttributes: new { @class = "control-label col-md-2" })
         @Html.EditorFor(d => d.Req_Date, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(d => d.Req_Date)
-        <input class="btn-primary" type="submit" value="Submit Form" formmethod="post" />
     </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Submit Form" class="btn btn-primary" formmethod="post"/>
+        </div>
+    </div>
+</div>
 }
 
+<div class="row">
+    <div class="col-sm-12">
+        @Html.ActionLink("Back Home", "Index")
+    </div>
+    <div class="col-sm-12">
+        @Html.ActionLink("What's the hold up?", "RequestQueue")
+    </div>
+</div>

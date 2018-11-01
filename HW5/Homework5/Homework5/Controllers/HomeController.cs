@@ -8,22 +8,27 @@ using Homework5.DAL;
 
 namespace Homework5.Controllers
 {
+    /// <summary>
+    /// Controller for all pages
+    /// </summary>
     public class HomeController : Controller
     {
-        public RequestContext rc = new RequestContext();
+        private RequestContext rc = new RequestContext();
 
+        // Default landing page
         public ActionResult Index()
         {
             return View();
         }
 
+        // GET: Submit Request
+        [HttpGet]
         public ActionResult SubmitRequest()
         {
             return View();
         }
-
-        [HttpGet]
-        public ActionResult SubmitRequest([Bind(Include ="FirstName, LastName, Phone, Apt_Name, Unit, Req_Box, Req_Date")] Request requests)
+        [HttpPost]
+        public ActionResult SubmitRequest(Request requests)
         {
             if (ModelState.IsValid)
             {
@@ -31,15 +36,16 @@ namespace Homework5.Controllers
                 rc.Requests.Add(requests);
                 rc.SaveChanges();
 
-                return RedirectToAction("Index");
+                RedirectToAction("RequestQueue");
             }
 
-            return View();
+            return View(requests);
         }
 
+        // GET: List of table elements
         public ActionResult RequestQueue()
         {
-            return View(rc.Requests);
+            return View(rc.Requests.ToList());
         }
     }
 }
