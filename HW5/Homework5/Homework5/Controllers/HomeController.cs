@@ -22,6 +22,21 @@ namespace Homework5.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult SubmitRequest([Bind(Include ="FirstName, LastName, Phone, Apt_Name, Unit, Req_Box, Req_Date")] Request requests)
+        {
+            if (ModelState.IsValid)
+            {
+                
+                rc.Requests.Add(requests);
+                rc.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            return View();
+        }
+
         public ActionResult RequestQueue()
         {
             return View(rc.Requests);

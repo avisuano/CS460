@@ -23,7 +23,6 @@ textarea {
     max-width: 280px;
 }
 
-th
-{
-    width:auto;
+.paddingNeeded {
+    padding: 0 15px 0 15px;
 }

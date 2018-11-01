@@ -3,27 +3,20 @@
 @{
     ViewBag.Title = "Requests Being Processed";
 }
+<h1>Requests currently in progress</h1>
 
-<h2>RequestQueue</h2>
-
-<table>
+<table class="paddingNeeded">
     <tr>
-        <th>@Html.DisplayNameFor(model => model.FirstName) </th>
-
-        <th">@Html.DisplayNameFor(model => model.Apt_Name) </th>
-
-        <th>@Html.DisplayNameFor(model => model.Req_Box) </th>
-
-        <th>@Html.DisplayNameFor(model => model.Req_Date) </th>
-
+        <th>@Html.DisplayNameFor(model => model.Apt_Name) </th>
+        <th style="padding: 0px 0px 0px 15px">@Html.DisplayNameFor(model => model.Req_Box) </th>
+        <th style="padding: 0px 0px 0px 15px">@Html.DisplayNameFor(model => model.Req_Date) </th>
     </tr>
     @foreach (var item in Model)
     {
     <tr>
-        <td>@Html.DisplayFor(model => item.FirstName) </td>
         <td>@Html.DisplayFor(model => item.Apt_Name) </td>
-        <td>@Html.DisplayFor(model => item.Req_Box) </td>
-        <td>@Html.DisplayFor(model => item.Req_Date) </td>
+        <td style="padding: 0px 0px 0px 15px">@Html.DisplayFor(model => item.Req_Box) </td>
+        <td style="padding: 0px 0px 0px 15px">@Html.DisplayFor(model => item.Req_Date) </td>
     </tr>
     }
 </table>

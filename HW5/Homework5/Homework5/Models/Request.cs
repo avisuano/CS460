@@ -31,6 +31,10 @@ namespace Homework5.Models
         public string Apt_Name { get; set; }
 
         [Required]
+        [Display(Name = "Unit Number")]
+        public int Unit { get; set; }
+
+        [Required]
         [Display(Name = "Request for maintanence")]
         public string Req_Box { get; set; }
 
