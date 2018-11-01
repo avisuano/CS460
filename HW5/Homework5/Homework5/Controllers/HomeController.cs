@@ -28,6 +28,7 @@ namespace Homework5.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult SubmitRequest(Request requests)
         {
             if (ModelState.IsValid)

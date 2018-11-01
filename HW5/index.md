@@ -163,4 +163,40 @@ public ActionResult RequestQueue()
 ![firststep](https://avisuano.github.io/CS460/HW5/stepone.PNG)
 
 
-After the data was being pushed, I had to hunker down and work on a view to push the information from the browser to the database table.
+After the data was being pushed, I had to hunker down and work on a view to push the information from the browser to the database table. It took, as usual, way longer than it needed to. After many hours of scouring the internet and stack overflow for every error along the way, I was able to finally get it to work.
+
+The trick, was in the controller. With just a few simple lines, it was finally working. The largest issue was not sending the object to the view. After that everything was actually doing what it was supposed to!
+
+```cs
+[HttpPost]
+[ValidateAntiForgeryToken]
+public ActionResult SubmitRequest(Request requests)
+{
+		if (ModelState.IsValid)
+		{
+
+				rc.Requests.Add(requests);
+				rc.SaveChanges();
+
+				RedirectToAction("RequestQueue");
+		}
+
+		return View(requests);
+}
+```
+The view was very straight forward, and very ugly. I spent so long trying to figure out the logic, that the design of the view took a big hit... it's ugly. If I had more time, I would have devoted several more hours to really clean it up and make something that would be nice to look at.
+
+```html
+@Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+@Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+```
+
+![It's working!](https://avisuano.github.io/CS460/HW5/steptwo.PNG)
+
+After that I checked both the database and that the new insertions were actually getting pushed to the view.
+
+![It's working!](https://avisuano.github.io/CS460/HW5/stepfour.PNG)
+
+![It's working!](https://avisuano.github.io/CS460/HW5/stepthree.PNG)
+
+At this point I have been working on this project for far too long, and had to move on to project six or risk falling even further behind. 
