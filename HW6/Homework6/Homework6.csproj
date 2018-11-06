@@ -155,121 +155,42 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="DAL\WWIContext.cs" />
+    <Compile Include="DAL\WideWorldImportersContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BuyingGroup.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\City.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ColdRoomTemperature.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Color.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Country.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Customer.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CustomerCategory.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Customers_Archive.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CustomerTransaction.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DeliveryMethod.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Invoice.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\InvoiceLine.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Order.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\OrderLine.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PackageType.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PaymentMethod.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Person.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PurchaseOrder.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PurchaseOrderLine.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SpecialDeal.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\StateProvince.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\StockGroup.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\StockItem.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\StockItemHolding.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\StockItemStockGroup.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\StockItemTransaction.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Supplier.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SupplierCategory.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SupplierTransaction.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SystemParameter.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TransactionType.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\VehicleTemperature.cs">
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\WideWorldImportersEntities.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WideWorldImportersEntities.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\WideWorldImportersEntities.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WideWorldImportersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\WideWorldImportersEntities.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WideWorldImportersEntities.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Models\BuyingGroup.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\ColdRoomTemperature.cs" />
+    <Compile Include="Models\Color.cs" />
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\CustomerCategory.cs" />
+    <Compile Include="Models\CustomerTransaction.cs" />
+    <Compile Include="Models\DeliveryMethod.cs" />
+    <Compile Include="Models\Invoice.cs" />
+    <Compile Include="Models\InvoiceLine.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderLine.cs" />
+    <Compile Include="Models\PackageType.cs" />
+    <Compile Include="Models\PaymentMethod.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\PurchaseOrder.cs" />
+    <Compile Include="Models\PurchaseOrderLine.cs" />
+    <Compile Include="Models\SpecialDeal.cs" />
+    <Compile Include="Models\StateProvince.cs" />
+    <Compile Include="Models\StockGroup.cs" />
+    <Compile Include="Models\StockItem.cs" />
+    <Compile Include="Models\StockItemHolding.cs" />
+    <Compile Include="Models\StockItemStockGroup.cs" />
+    <Compile Include="Models\StockItemTransaction.cs" />
+    <Compile Include="Models\Supplier.cs" />
+    <Compile Include="Models\SupplierCategory.cs" />
+    <Compile Include="Models\SupplierTransaction.cs" />
+    <Compile Include="Models\SystemParameter.cs" />
+    <Compile Include="Models\TransactionType.cs" />
+    <Compile Include="Models\VehicleTemperature.cs" />
+    <Compile Include="Models\WideWorldImportersEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
   </ItemGroup>
@@ -289,16 +210,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\WideWorldImportersEntities.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WideWorldImportersEntities.edmx</DependentUpon>
-      <LastGenOutput>WideWorldImportersEntities.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\WideWorldImportersEntities.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WideWorldImportersEntities.edmx</DependentUpon>
-      <LastGenOutput>WideWorldImportersEntities.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -322,13 +233,6 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
-    <EntityDeploy Include="Models\WideWorldImportersEntities.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>WideWorldImportersEntities.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\WideWorldImportersEntities.edmx.diagram">
-      <DependentUpon>WideWorldImportersEntities.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
