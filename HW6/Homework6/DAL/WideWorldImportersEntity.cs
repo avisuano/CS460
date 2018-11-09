@@ -1,14 +1,16 @@
-namespace Homework6.DAL
+namespace Homework6.Models
 {
     using System;
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
-    using Homework6.Models;
 
     public partial class WideWorldImportersEntity : DbContext
     {
-        public WideWorldImportersEntity() : base("name=WideWorldImportersEntity") { }
+        public WideWorldImportersEntity()
+            : base("name=WideWorldImportersEntity")
+        {
+        }
 
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
@@ -18,6 +20,7 @@ namespace Homework6.DAL
         public virtual DbSet<StateProvince> StateProvinces { get; set; }
         public virtual DbSet<SystemParameter> SystemParameters { get; set; }
         public virtual DbSet<TransactionType> TransactionTypes { get; set; }
+        public virtual DbSet<PurchaseOrderLine> PurchaseOrderLines { get; set; }
         public virtual DbSet<PurchaseOrder> PurchaseOrders { get; set; }
         public virtual DbSet<SupplierCategory> SupplierCategories { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
@@ -40,7 +43,6 @@ namespace Homework6.DAL
         public virtual DbSet<StockItemStockGroup> StockItemStockGroups { get; set; }
         public virtual DbSet<StockItemTransaction> StockItemTransactions { get; set; }
         public virtual DbSet<VehicleTemperature> VehicleTemperatures { get; set; }
-        public virtual DbSet<Customers1> Customers1 { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -143,6 +145,12 @@ namespace Homework6.DAL
 
             modelBuilder.Entity<Person>()
                 .HasMany(e => e.TransactionTypes)
+                .WithRequired(e => e.Person)
+                .HasForeignKey(e => e.LastEditedBy)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Person>()
+                .HasMany(e => e.PurchaseOrderLines)
                 .WithRequired(e => e.Person)
                 .HasForeignKey(e => e.LastEditedBy)
                 .WillCascadeOnDelete(false);
@@ -357,6 +365,11 @@ namespace Homework6.DAL
                 .WithRequired(e => e.TransactionType)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<PurchaseOrder>()
+                .HasMany(e => e.PurchaseOrderLines)
+                .WithRequired(e => e.PurchaseOrder)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<SupplierCategory>()
                 .HasMany(e => e.Suppliers)
                 .WithRequired(e => e.SupplierCategory)
@@ -445,6 +458,11 @@ namespace Homework6.DAL
                 .HasPrecision(10, 2);
 
             modelBuilder.Entity<PackageType>()
+                .HasMany(e => e.PurchaseOrderLines)
+                .WithRequired(e => e.PackageType)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<PackageType>()
                 .HasMany(e => e.InvoiceLines)
                 .WithRequired(e => e.PackageType)
                 .WillCascadeOnDelete(false);
@@ -478,6 +496,11 @@ namespace Homework6.DAL
             modelBuilder.Entity<StockItem>()
                 .Property(e => e.TypicalWeightPerUnit)
                 .HasPrecision(18, 3);
+
+            modelBuilder.Entity<StockItem>()
+                .HasMany(e => e.PurchaseOrderLines)
+                .WithRequired(e => e.StockItem)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<StockItem>()
                 .HasMany(e => e.InvoiceLines)
