@@ -1,18 +1,16 @@
-namespace Homework6.DAL
+namespace Homework6.Models
 {
     using System;
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
-    using Homework6.Models;
 
     public partial class WideWorldImportersEntity : DbContext
     {
-<<<<<<< HEAD
-        public WideWorldImportersEntity() : base("name=WideWorldImportersEntityContext") { }
-=======
-        public WideWorldImportersEntity() : base("name=WideWorldImportersEntity") { }
->>>>>>> 0dde2006148cd65f98e8097c58c05b5cd3c5be93
+        public WideWorldImportersEntity()
+            : base("name=WideWorldImportersEntity")
+        {
+        }
 
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
@@ -22,10 +20,7 @@ namespace Homework6.DAL
         public virtual DbSet<StateProvince> StateProvinces { get; set; }
         public virtual DbSet<SystemParameter> SystemParameters { get; set; }
         public virtual DbSet<TransactionType> TransactionTypes { get; set; }
-<<<<<<< HEAD
         public virtual DbSet<PurchaseOrderLine> PurchaseOrderLines { get; set; }
-=======
->>>>>>> 0dde2006148cd65f98e8097c58c05b5cd3c5be93
         public virtual DbSet<PurchaseOrder> PurchaseOrders { get; set; }
         public virtual DbSet<SupplierCategory> SupplierCategories { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
@@ -48,10 +43,6 @@ namespace Homework6.DAL
         public virtual DbSet<StockItemStockGroup> StockItemStockGroups { get; set; }
         public virtual DbSet<StockItemTransaction> StockItemTransactions { get; set; }
         public virtual DbSet<VehicleTemperature> VehicleTemperatures { get; set; }
-<<<<<<< HEAD
-=======
-        public virtual DbSet<Customers1> Customers1 { get; set; }
->>>>>>> 0dde2006148cd65f98e8097c58c05b5cd3c5be93
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -159,15 +150,12 @@ namespace Homework6.DAL
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Person>()
-<<<<<<< HEAD
                 .HasMany(e => e.PurchaseOrderLines)
                 .WithRequired(e => e.Person)
                 .HasForeignKey(e => e.LastEditedBy)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Person>()
-=======
->>>>>>> 0dde2006148cd65f98e8097c58c05b5cd3c5be93
                 .HasMany(e => e.PurchaseOrders)
                 .WithRequired(e => e.Person)
                 .HasForeignKey(e => e.LastEditedBy)
@@ -377,14 +365,11 @@ namespace Homework6.DAL
                 .WithRequired(e => e.TransactionType)
                 .WillCascadeOnDelete(false);
 
-<<<<<<< HEAD
             modelBuilder.Entity<PurchaseOrder>()
                 .HasMany(e => e.PurchaseOrderLines)
                 .WithRequired(e => e.PurchaseOrder)
                 .WillCascadeOnDelete(false);
 
-=======
->>>>>>> 0dde2006148cd65f98e8097c58c05b5cd3c5be93
             modelBuilder.Entity<SupplierCategory>()
                 .HasMany(e => e.Suppliers)
                 .WithRequired(e => e.SupplierCategory)
@@ -473,14 +458,11 @@ namespace Homework6.DAL
                 .HasPrecision(10, 2);
 
             modelBuilder.Entity<PackageType>()
-<<<<<<< HEAD
                 .HasMany(e => e.PurchaseOrderLines)
                 .WithRequired(e => e.PackageType)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PackageType>()
-=======
->>>>>>> 0dde2006148cd65f98e8097c58c05b5cd3c5be93
                 .HasMany(e => e.InvoiceLines)
                 .WithRequired(e => e.PackageType)
                 .WillCascadeOnDelete(false);
@@ -516,14 +498,11 @@ namespace Homework6.DAL
                 .HasPrecision(18, 3);
 
             modelBuilder.Entity<StockItem>()
-<<<<<<< HEAD
                 .HasMany(e => e.PurchaseOrderLines)
                 .WithRequired(e => e.StockItem)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<StockItem>()
-=======
->>>>>>> 0dde2006148cd65f98e8097c58c05b5cd3c5be93
                 .HasMany(e => e.InvoiceLines)
                 .WithRequired(e => e.StockItem)
                 .WillCascadeOnDelete(false);
