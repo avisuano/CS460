@@ -20,10 +20,7 @@ namespace Homework6.Models
             StateProvinces = new HashSet<StateProvince>();
             SystemParameters = new HashSet<SystemParameter>();
             TransactionTypes = new HashSet<TransactionType>();
-<<<<<<< HEAD
-=======
             PurchaseOrderLines = new HashSet<PurchaseOrderLine>();
->>>>>>> e3e8b607439b4052e72efb63b950527342f9198e
             PurchaseOrders = new HashSet<PurchaseOrder>();
             PurchaseOrders1 = new HashSet<PurchaseOrder>();
             SupplierCategories = new HashSet<SupplierCategory>();
@@ -142,12 +139,9 @@ namespace Homework6.Models
         public virtual ICollection<TransactionType> TransactionTypes { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-<<<<<<< HEAD
-=======
         public virtual ICollection<PurchaseOrderLine> PurchaseOrderLines { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
->>>>>>> e3e8b607439b4052e72efb63b950527342f9198e
         public virtual ICollection<PurchaseOrder> PurchaseOrders { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

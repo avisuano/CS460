@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
-using Homework6.DAL;
 using Homework6.Models;
 using Homework6.Models.Required;
-using System.Net;
 
 namespace Homework6.Controllers
 {
