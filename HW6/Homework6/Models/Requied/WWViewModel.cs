@@ -6,7 +6,7 @@ using System.Web;
 namespace Homework6.Models.Required
 {   
     /// <summary>
-    /// 
+    /// Required model that is to also help aid in searching the database
     /// </summary>
     public class WWViewModel
     {
