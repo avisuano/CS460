@@ -3,28 +3,70 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Homework6.DAL;
+using Homework6.Models;
+using Homework6.Models.Required;
+using System.Net;
 
 namespace Homework6.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        // 
+        WideWorldImportersEntity db = new WideWorldImportersEntity();
+
+        // 
+        public ActionResult Customer(string searchResults)
         {
-            return View();
+            // 
+            WWViewModel vm = new WWViewModel();
+
+            // 
+            if (searchResults == null || searchResults == "")
+            {
+                ViewBag.Customer = false;
+                return View();
+            }
+            // 
+            else
+            {
+                ViewBag.Customer = true;
+                return View(db.People.Where(a => a.FullName.ToUpper().Contains(searchResults.ToUpper())).ToList());
+            }            
         }
 
-        public ActionResult About()
+        //
+        public ActionResult Details(int? id)
         {
-            ViewBag.Message = "Your application description page.";
+            //
+            WWViewModel vmd = new WWViewModel { GetPerson = db.People.Find(id) };
+            ViewBag.Found = false;
 
-            return View();
-        }
+            if (vmd.GetPerson.Customers2.Count() > 0)
+            {
+                ViewBag.Found = true;
+                // 
+                int GetCustomerID = vmd.GetPerson.Customers2.FirstOrDefault().CustomerID;
+                vmd.GetCustomer = db.Customers.Find(GetCustomerID);
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+                // 
+                ViewBag.GrossSales = vmd.GetCustomer.Orders.SelectMany(b => b.Invoices).SelectMany(c => c.InvoiceLines).Sum(d => d.ExtendedPrice);
+                ViewBag.GrossProfit = vmd.GetCustomer.Orders.SelectMany(e => e.Invoices).SelectMany(f => f.InvoiceLines).Sum(g => g.LineProfit);
+                vmd.GetInvoiceLine = vmd.GetCustomer.Orders.SelectMany(h => h.Invoices).SelectMany(i => i.InvoiceLines).OrderByDescending(j => j.LineProfit).Take(10).ToList();
+            }
 
-            return View();
+            //
+            Person person = db.People.Find(id);
+            if (person == null)
+            {
+                return HttpNotFound();
+            }
+
+            //
+            return View("Details",vmd);
         }
     }
 }
