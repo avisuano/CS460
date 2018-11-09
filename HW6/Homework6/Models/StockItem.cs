@@ -12,6 +12,10 @@ namespace Homework6.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public StockItem()
         {
+<<<<<<< HEAD
+=======
+            PurchaseOrderLines = new HashSet<PurchaseOrderLine>();
+>>>>>>> e3e8b607439b4052e72efb63b950527342f9198e
             InvoiceLines = new HashSet<InvoiceLine>();
             OrderLines = new HashSet<OrderLine>();
             SpecialDeals = new HashSet<SpecialDeal>();
@@ -82,6 +86,12 @@ namespace Homework6.Models
 
         public virtual Person Person { get; set; }
 
+<<<<<<< HEAD
+=======
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PurchaseOrderLine> PurchaseOrderLines { get; set; }
+
+>>>>>>> e3e8b607439b4052e72efb63b950527342f9198e
         public virtual Supplier Supplier { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
