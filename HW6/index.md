@@ -6,6 +6,9 @@ The repository can be found [here](https://github.com/avisuano/CS460/tree/master
 
 This assignment turned out to be a doozy for me. It started as with the previous ones, ```git checkout -b hw6_main``` and work got started. The first task was to download the database backup and restore it. This is where to first issue arrived. This first step took entirely too long. I was hit with version issues, permission issues, and other technical issues. It turned out to be an easy fix.
 
+The bane of my existence... at least early
+![why](https://avisuano.github.io/CS460/HW6/wat.PNG)
+
 There was another issue with getting LINQPad to work! Eventually I was forced to give up on LINQPad as time was starting to catch up with me. It became a trial by fire, as variable after variable, and lambda equation after lambda equation; I was able to figure out what to do! Eventually, I was finally able to get started on the project itself.
 
 The first thing to here was to build the model classes. This was done with the handy, ADO.NET Entity Data Model builder, using the code first approach. That made the start very simple. After the models were finished, I added the DAL folder and moved the context class created by the data model into this folder.
@@ -107,7 +110,7 @@ This view turned out to be not too difficult.
 *@
 ```
 
-And for the top items...
+And for the top items... {0:C} allows us to convert string to a currency format
 
 ```case
 @foreach (var product in Model.GetInvoiceLine)
