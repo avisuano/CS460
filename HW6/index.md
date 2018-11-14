@@ -127,3 +127,7 @@ And for the top items... {0:C} allows us to convert string to a currency format
 ```
 
 After this everything went south. I wasn't paying close enough attention to my branches, and which machine I was working on. This lead in an incredible number of version issues, made worse by attempts to undo the damage. I attempted to checkout an earlier commit, save that to a new branch, and then merge that into the master, but then things spiraled out of control. Eventually I was forced to concede defeat and move on. Even small things such as; the namespace was no longer working, @Html was now broken, random lines of text were inserted into config files. I spent almost 10 hours trying to fix the mess. With time running out, I chose to move on to assignment seven. Less I fall even further behind.
+
+These are some of the issues...
+
+![funtimes](https://avisuano.github.io/CS460/HW6/issues.PNG)

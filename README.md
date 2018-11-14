@@ -27,7 +27,7 @@ I have repositories here: [GitHub](https://github.com/avisuano/CS460) and here: 
     - What I did can be found [here](https://avisuano.github.io/CS460/HW5/).
 6. **Homework Six**
     - Requirements can be found [here](http://wou.edu/~morses/classes/cs46x/assignments/HW6_1819.html).
-    -The rationalization of what went wrong [here](https://avisuano.github.io/CS460/HW6/).
+    - The rationalization of what went wrong [here](https://avisuano.github.io/CS460/HW6/).
 7. **Homework Seven**
     - Requirements can be found [here](http://wou.edu/~morses/classes/cs46x/assignments/HW7.html).
 8. **Homework Eight**
