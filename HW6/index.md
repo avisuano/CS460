@@ -4,10 +4,14 @@ The requirements for this assignment can be found [here](http://www.wou.edu/~mor
 
 The repository can be found [here](https://github.com/avisuano/CS460/tree/master/HW6/).
 
-This assignment turned out to be a doozy for me. It started as with the previous ones, ```git checkout -b hw6_main``` and work got started. The first task was to download the database backup and restore it. This is where to first issue arrived. This first step took entirely too long. I was hit with version issues, permission issues, and other technical issues. It turned out to be an easy fix.
+This assignment turned out to be a doozy for me. It started as with the previous ones, ```git checkout -b hw6_main``` and work got started. The first task was to download the database backup and restore it. This is where to first issue arrived. This first step took entirely too long. I was hit with version issues, permission issues, and other technical issues. When it was all said and done, it turned out to be an easy fix.
 
+<<<<<<< HEAD
 The bane of my existence... at least early
 
+=======
+The bane of my existence... at least early on...
+>>>>>>> hw7_main
 ![why](https://avisuano.github.io/CS460/HW6/wat.PNG)
 
 There was another issue with getting LINQPad to work! Eventually I was forced to give up on LINQPad as time was starting to catch up with me. It became a trial by fire, as variable after variable, and lambda equation after lambda equation; I was able to figure out what to do! Eventually, I was finally able to get started on the project itself.
@@ -129,6 +133,6 @@ And for the top items... {0:C} allows us to convert string to a currency format
 
 After this everything went south. I wasn't paying close enough attention to my branches, and which machine I was working on. This lead in an incredible number of version issues, made worse by attempts to undo the damage. I attempted to checkout an earlier commit, save that to a new branch, and then merge that into the master, but then things spiraled out of control. Eventually I was forced to concede defeat and move on. Even small things such as; the namespace was no longer working, @Html was now broken, random lines of text were inserted into config files. I spent almost 10 hours trying to fix the mess. With time running out, I chose to move on to assignment seven. Less I fall even further behind.
 
-These are some of the issues...
+These were some of the issues...
 
 ![funtimes](https://avisuano.github.io/CS460/HW6/issues.PNG)
