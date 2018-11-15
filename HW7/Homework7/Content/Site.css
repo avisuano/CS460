@@ -23,6 +23,7 @@ textarea {
     max-width: 280px;
 }
 
-.translate {
-    text-align: center;
+#translate {
+    width:100%;
+    max-width:100%;
 }
