@@ -36,7 +36,7 @@ namespace Homework7.Controllers
             LogSearch(searchString);
 
             // Send off the search to Giphy with attached APIKey
-            string getSticker = "http://api.giphy./com/v1/stickers/translate" + searchString + "&api_key" + APIKey;
+            string getSticker = "http://api.giphy./com/v1/stickers/translate?api_key=" + APIKey + "&s=" + searchString;
 
             // Open a stream to gather the images
             WebRequest request = WebRequest.Create(getSticker);
