@@ -17,7 +17,7 @@ namespace Homework7.Controllers
         private SearchLogContext sc = new SearchLogContext();
 
         // Find the key needed to grab stickers from Giphy
-        private string APIKey = System.Web.Configuration.WebConfigurationManager.AppSettings["GiphyAPIKey"];
+        private readonly string APIKey = System.Web.Configuration.WebConfigurationManager.AppSettings["GiphyAPIKey"];
 
         // GET: Home
         public ActionResult Index()
