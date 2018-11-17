@@ -12,8 +12,6 @@ namespace Homework7.DAL
 
         public virtual DbSet<SearchLog> SearchLogs { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-        }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder) { }
     }
 }
