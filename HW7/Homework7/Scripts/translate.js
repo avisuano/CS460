@@ -1,50 +1,62 @@
-﻿$(document).ready(function () {
+﻿// Some simple words to search Giphy with
+var simpleDictionary =
+    [
+        "cat", "dog", "brother", "sister", "husband", "wife", "kids", "son", "daughter", "computer", "friend",
+        "lobster", "class", "homework", "school", "hard", "sometimes", "fun", "hard", "back", "to", "the",
+        "military", "please", "so", "much", "easier", "did", "if", "of", "course", "pay", "more", "attention",
+        "less", "stress"
+    ];
 
-    // Add the text as typed to the DOM... for fun...
+// When the document is loaded
+$(document).ready(function () {
+
+    // Add the text as typed to the DOM... for 'fun' and practice
     $("#translate").keyup(function (event) {
         var txt = $(this).val();
-        $("#destination").text(txt);
+        $("#tippitytype").text(txt);
     });
 
-    // When submit is clicked...
+    // The main work horse
     $('#trans').click(function () {
-        // First step is to trim off any extra white space
+        // Trim off extra white space
         var searchText = $('#translate').val().trim();
-
-        // Now we need to trim special characters, trim any space that created
+        // Remove special characters, don't want those going to the database
         searchText = searchText.replace(/[^a-zA-Z0-9]/g, ' ');
+        // Remove any extra white space created
         searchText = searchText.trim();
-        // Replace white space between words with a + for easier query strings
+        // Replace spaces with "+" to make it easier to search
         searchText = searchText.replace(/\s+/g, '+');
 
-        // Build a query to search the database
-        var query = "/Search/?q=" + searchText;
-
-        // Query the server
-        $.ajax({
-            type: "GET",
-            dataType: "json",
-            url: query,
-            success: loadImages,
-            error: failed
-        });
+        // Check the dictionary, if there search Giphy, if not just place the word
+        if (checkDictionary(searchText) == true) {
+            var search = "/SearchGiphy/?q=" + searchText;
+            $.ajax(
+                {
+                    type: "GET",
+                    dataType: "json",
+                    url: search,
+                    success: placeWords
+                });
+        }
+        else {
+            placeWords(searchText);
+        }
     });
 
-    // When stickers are found, load the stickers to the seaches div
-    function loadImages(data)
-    {
-        $('#searches').empty();
-        var temp = JSON.parse(data);
-        for (var i = 0; i < temp.length; i += 1)
-        {
-            $('#searches').append('<img src="' + temp[i].url + '">');
+    // check the dictionary
+    function checkDictionary(searchText) {
+        var tmp = searchText;
+        var inDictionary = false;
+        for (var i = 0; i < simpleDictionary.length; i++) {
+            if (simpleDictionary[i].toLowerCase() === tmp.toLowerCase()) {
+                inDictionary = true;
+            }
         }
+        return inDictionary;
     }
 
-    // If everything failed... most likely event
-    function loadFail()
-    {
-        $('#searches').empty();
-        $('#searches').append('<h3>ERROR LOADING IMAGES</h3>');
+    // Simple function to append search text to the containter
+    function placeWords(searchText) {
+        $('#searches').append(" " + "<label>" + searchText + "</label>");
     }
 });

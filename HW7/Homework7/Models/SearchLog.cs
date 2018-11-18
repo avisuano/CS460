@@ -11,12 +11,16 @@ namespace Homework7.Models
         public int ID { get; set; }
 
         [Required]
-        [StringLength(128)]
+        [StringLength(255)]
         public string Search { get; set; }
 
         [Required]
         [StringLength(15)]
         public string SearchIP { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string SearchB { get; set; }
 
         public DateTime TimeStamp { get; set; }
     }

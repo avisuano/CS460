@@ -18,6 +18,14 @@ namespace Homework7
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            // Forgot to add the map route
+            routes.MapRoute
+            (
+                name: "SearchGiphy",
+                url: "{controller}/{action}/{search}",
+                defaults: new { controller = "Request", action = "SearchGiphy", search = UrlParameter.Optional }
+            );
         }
     }
 }
