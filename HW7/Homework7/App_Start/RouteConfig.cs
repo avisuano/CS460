@@ -23,8 +23,8 @@ namespace Homework7
             routes.MapRoute
             (
                 name: "SearchGiphy",
-                url: "{controller}/{action}/{search}",
-                defaults: new { controller = "Request", action = "SearchGiphy", search = UrlParameter.Optional }
+                url: "Search/{id}",
+                defaults: new { controller = "Search", action = "SearchGiphy", id = UrlParameter.Optional }
             );
         }
     }
