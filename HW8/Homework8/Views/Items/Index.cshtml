@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<Homework8.Models.Item>
-  
+
 
 @{
     ViewBag.Title = "Index";
@@ -25,20 +25,28 @@
 
     @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Seller.SellerName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemDescription)
-        </td>
-        <td>
-            @Html.ActionLink("Details", "Details", new { id = item.ItemID })
-        </td>
-    </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seller.SellerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemDescription)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.ItemID })
+            </td>
+        </tr>
     }
 
 </table>
+
+
+@section scripts
+{
+    <script src="~/Scripts/updateBids.js"></script>
+}
+
+<p id="displayBids"> </p>
