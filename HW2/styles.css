@@ -4,38 +4,26 @@
     }
 }
 
-.hello {
-  padding-left: 30px;
-  color: white;
-  background-color: lightblue;
-  outline-style: ridge;
-  outline-color: black;
+body{
+    background-color: lightgrey;
 }
 
-.column {
-  margin: 10px;
-  padding: 10px;
-}
-.column1 {
-  margin: 10px;
-  padding: 10px;
-  float: right;
+.row{
+    margin: 10px;
+    padding: 10px;
 }
 
-.row {
-  margin-left: 10px;
-  border: solid;
-  border-width: 1px;
-  border-radius: 15px;
-  width: 250px;
+.box{
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: whitesmoke;
+    padding: 5px;
 }
 
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
+#hello{
+    text-align: center;
+    color: aliceblue;
+    background-color: darkred;
 }
 
-#space {
-  padding-left: 15px;
-}
