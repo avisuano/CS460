@@ -10,13 +10,15 @@ namespace Homework8.Models
     {
         public int BidID { get; set; }
 
-        public decimal Price { get; set; }
-
-        public DateTime Timestamp { get; set; }
-
         public int ItemID { get; set; }
 
         public int BuyerID { get; set; }
+
+        public decimal Price { get; set; }
+
+        // SQL and C# were clashing
+        private DateTime Date = DateTime.Now;
+        public DateTime Timestamp { get { return Date; } set { Date = value; } }
 
         public virtual Item Item { get; set; }
 

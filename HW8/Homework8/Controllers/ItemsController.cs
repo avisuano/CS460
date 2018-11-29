@@ -6,14 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Homework8.Models;
 using Homework8.DAL;
+using Homework8.Models;
 
 namespace Homework8.Controllers
 {
     public class ItemsController : Controller
     {
-        private AuctionHouseContextDb db = new AuctionHouseContextDb();
+        private AuctionHouseDbContext db = new AuctionHouseDbContext();
 
         // GET: Items
         public ActionResult Index()
@@ -40,7 +40,7 @@ namespace Homework8.Controllers
         // GET: Items/Create
         public ActionResult Create()
         {
-            ViewBag.SellerID = new SelectList(db.Sellers, "SellerID", "Name");
+            ViewBag.SellerID = new SelectList(db.Sellers, "SellerID", "SellerName");
             return View();
         }
 
@@ -49,7 +49,7 @@ namespace Homework8.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ItemID,Name,Description,SellerID")] Item item)
+        public ActionResult Create([Bind(Include = "ItemID,ItemName,ItemDescription,SellerID")] Item item)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +58,7 @@ namespace Homework8.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.SellerID = new SelectList(db.Sellers, "SellerID", "Name", item.SellerID);
+            ViewBag.SellerID = new SelectList(db.Sellers, "SellerID", "SellerName", item.SellerID);
             return View(item);
         }
 
@@ -74,7 +74,7 @@ namespace Homework8.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.SellerID = new SelectList(db.Sellers, "SellerID", "Name", item.SellerID);
+            ViewBag.SellerID = new SelectList(db.Sellers, "SellerID", "SellerName", item.SellerID);
             return View(item);
         }
 
@@ -83,7 +83,7 @@ namespace Homework8.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ItemID,Name,Description,SellerID")] Item item)
+        public ActionResult Edit([Bind(Include = "ItemID,ItemName,ItemDescription,SellerID")] Item item)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace Homework8.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.SellerID = new SelectList(db.Sellers, "SellerID", "Name", item.SellerID);
+            ViewBag.SellerID = new SelectList(db.Sellers, "SellerID", "SellerName", item.SellerID);
             return View(item);
         }
 
@@ -130,28 +130,18 @@ namespace Homework8.Controllers
             base.Dispose(disposing);
         }
 
-        // Lets go build a list, up to the highest height
-        public JsonResult ListBids(int id)
+        // Lets go display a bid, up to the highest bid
+        public JsonResult ListBids(int? id)
         {
             // Let's find each item by id
-            var bids = db.Items.Find(id)
-                .Bids.ToList()
-                .OrderByDescending(a => a.Price)
-                .Select(b => new { a = b.BuyerID, c = b.BidID })
+            var bids = db.Items.Where(a => a.ItemID == id)
+                .Select(b => b.Bids)
+                .FirstOrDefault()
+                .Select(c => new { c.Price, c.Buyer.BuyerName })
+                .OrderByDescending(d => d.Price)
                 .ToList();
 
-            // Empty array to hold the items
-            string[] list = new string[bids.Count];
-
-            // Fill up the new array with each item with the buyers Name and current Price
-            for (int i = 0; i < list.Length; i++)
-            {
-                list[i] = $"<ul>{db.Buyers.Find(bids[i].a).Name} bid ${db.Bids.Find(bids[i].c).Price}</ul>";
-            }
-
-            // Repackage the array to send back to the view
-            var data = new { updated = list };
-            return Json(data, JsonRequestBehavior.AllowGet);
+            return Json(bids, JsonRequestBehavior.AllowGet);
         }
     }
 }

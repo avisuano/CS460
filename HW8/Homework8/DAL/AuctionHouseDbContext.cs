@@ -6,10 +6,10 @@ namespace Homework8.DAL
     using System.Linq;
     using Homework8.Models;
 
-    public partial class AuctionHouseContextDb : DbContext
+    public partial class AuctionHouseDbContext : DbContext
     {
-        public AuctionHouseContextDb()
-            : base("name=AuctionHouseContextDb")
+        public AuctionHouseDbContext()
+            : base("name=AuctionHouseDbContext")
         {
         }
 

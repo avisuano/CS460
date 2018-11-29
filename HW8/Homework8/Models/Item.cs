@@ -18,11 +18,11 @@ namespace Homework8.Models
 
         [Required]
         [StringLength(32)]
-        public string Name { get; set; }
+        public string ItemName { get; set; }
 
         [Required]
         [StringLength(500)]
-        public string Description { get; set; }
+        public string ItemDescription { get; set; }
 
         public int SellerID { get; set; }
 

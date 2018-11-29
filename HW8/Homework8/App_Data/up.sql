@@ -4,7 +4,7 @@
 CREATE TABLE [dbo].[Buyers]
 (
 	BuyerID		INT	IDENTITY(1,1)		NOT NULL,
-	[Name]		NVARCHAR(32)			NOT NULL,
+	BuyerName	NVARCHAR(32)			NOT NULL,
 	CONSTRAINT[PK_dbo.Buyers] PRIMARY KEY CLUSTERED (BuyerID ASC)
 );
 
@@ -14,7 +14,7 @@ CREATE TABLE [dbo].[Buyers]
 CREATE TABLE [dbo].[Sellers]
 (
 	SellerID	INT IDENTITY(1,1)		NOT NULL,
-	[Name]		NVARCHAR(32)			NOT NULL,
+	SellerName	NVARCHAR(32)			NOT NULL,
 	CONSTRAINT[PK_dbo.Sellers] PRIMARY KEY CLUSTERED (SellerID ASC)
 );
 
@@ -24,8 +24,8 @@ CREATE TABLE [dbo].[Sellers]
 CREATE TABLE [dbo].[Items]
 (
 	ItemID			INT IDENTITY(101,1)		NOT NULL,
-	[Name]			NVARCHAR(32)			NOT NULL,
-	[Description]	NVARCHAR(500)			NOT NULL,
+	ItemName		NVARCHAR(32)			NOT NULL,
+	ItemDescription	NVARCHAR(500)			NOT NULL,
 	SellerID		INT						NOT NULL,
 	CONSTRAINT[PK_dbo.Items] PRIMARY KEY CLUSTERED (ItemID ASC),
 	CONSTRAINT[FK_dbo.Items] FOREIGN KEY (SellerID) REFERENCES Sellers(SellerID)
@@ -38,11 +38,11 @@ CREATE TABLE [dbo].[Items]
 ----------------
 CREATE TABLE [dbo].[Bids]
 (
-	BidID		INT	IDENTITY(1,1)		NOT NULL,
-	Price		DECIMAL					NOT NULL,
-	[Timestamp]	DATETIME				NOT NULL,
-	ItemID		INT						NOT NULL,
-	BuyerID		INT						NOT	NULL,
+	BidID		INT	IDENTITY(1,1)	NOT NULL,
+	ItemID		INT					NOT NULL,
+	BuyerID		INT					NOT	NULL,	
+	Price		DECIMAL				NOT NULL,
+	[Timestamp]	DATETIME			NOT NULL,
 	CONSTRAINT[PK_dbo.Bids]	 PRIMARY KEY CLUSTERED (BidID ASC),
 	CONSTRAINT[FK1_dbo.Bids] FOREIGN KEY (ItemID) REFERENCES Items(ItemID)
 		ON DELETE CASCADE
@@ -52,16 +52,19 @@ CREATE TABLE [dbo].[Bids]
 		ON UPDATE CASCADE
 );
 
-INSERT INTO [dbo].[Buyers]([Name]) VALUES
+--------------------------------
+-- SOME DEFAULT/GENERIC ITEMS --
+--------------------------------
+INSERT INTO [dbo].[Buyers](BuyerName) VALUES
 	('John Smith'),
 	('Franklin Rose'),
 	('Lourie Joe')
 
-INSERT INTO [dbo].[Sellers]([Name]) VALUES
+INSERT INTO [dbo].[Sellers](SellerName) VALUES
 	('Mary Ann'),
 	('Jon Appleton')
 
-INSERT INTO [dbo].[Items]([Name],[Description], SellerID) VALUES
+INSERT INTO [dbo].[Items](ItemName,ItemDescription, SellerID) VALUES
 	('Blob of Gum','An 18 year old collection of used gum!',1),
 	('Space Gun','A working space lazer pistol! May cause burns, skin irritation, and blindness',2),
 	('Painting','Painting from a young, ungifted child',2)
