@@ -142,6 +142,7 @@
     <Compile Include="DAL\AuctionHouseDbContext.cs" />
     <Compile Include="Models\Bid.cs" />
     <Compile Include="Models\Buyer.cs" />
+    <Compile Include="Models\GrabTheBids.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Seller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

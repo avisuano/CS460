@@ -6,8 +6,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml;
 using Homework8.DAL;
 using Homework8.Models;
+using Newtonsoft.Json;
 
 namespace Homework8.Controllers
 {
@@ -134,14 +136,26 @@ namespace Homework8.Controllers
         public JsonResult ListBids(int? id)
         {
             // Let's find each item by id
-            var bids = db.Items.Where(a => a.ItemID == id)
-                .Select(b => b.Bids)
-                .FirstOrDefault()
-                .Select(c => new { c.Price, c.Buyer.BuyerName })
+            var bids = db.Bids.Where(a => a.ItemID == id)
                 .OrderByDescending(d => d.Price)
                 .ToList();
 
-            return Json(bids, JsonRequestBehavior.AllowGet);
+            List<GrabTheBids> bidTable = new List<GrabTheBids>();
+
+            GrabTheBids tmp;
+
+            foreach (Bid bid in bids)
+            {
+                tmp = new GrabTheBids
+                {
+                    BuyerName = bid.Buyer.BuyerName,
+                    Price = bid.Price                    
+                };
+                bidTable.Add(tmp);
+            }
+
+            string toJson = JsonConvert.SerializeObject(bidTable, Newtonsoft.Json.Formatting.Indented);
+            return Json(toJson, JsonRequestBehavior.AllowGet);
         }
     }
 }

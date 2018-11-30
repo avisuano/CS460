@@ -34,9 +34,23 @@
             @Html.DisplayFor(model => model.ItemDescription)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemID)
+        </dt>
+
+        <dd id="itemId" value="@Model.ItemID">
+            @Html.DisplayFor(model => model.ItemID)
+        </dd>
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ItemID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+<table class="displayBids"> </table>
+
+@section scripts
+{
+<script src="~/Scripts/updateBids.js"></script>
+}
