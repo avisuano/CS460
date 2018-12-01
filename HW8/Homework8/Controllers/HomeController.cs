@@ -14,7 +14,7 @@ namespace Homework8.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return View(db.Bids.OrderByDescending(a => a.Timestamp).Take(10).ToList());
         }
         
         // GET: Bids/Create
@@ -36,7 +36,8 @@ namespace Homework8.Controllers
             {
                 db.Bids.Add(bid);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                // Redirect to item details page
+                return RedirectToAction("Details", "Items", new { id = bid.ItemID });
             }
 
             ViewBag.BuyerID = new SelectList(db.Buyers, "BuyerID", "BuyerName", bid.BuyerID);

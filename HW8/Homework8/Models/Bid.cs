@@ -8,16 +8,21 @@ namespace Homework8.Models
 
     public partial class Bid
     {
+        [Display(Name = "Bid Id:")]
         public int BidID { get; set; }
 
+        [Display(Name = "Item Id:")]
         public int ItemID { get; set; }
 
+        [Display(Name = "Buyer Id:")]
         public int BuyerID { get; set; }
 
+        [Display(Name = "Current price:")]
         public decimal Price { get; set; }
 
         // SQL and C# were clashing
         private DateTime Date = DateTime.Now;
+        [Display(Name = "Most recent:")]
         public DateTime Timestamp { get { return Date; } set { Date = value; } }
 
         public virtual Item Item { get; set; }

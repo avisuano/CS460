@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<Homework8.Models.Bid>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -8,15 +10,64 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-offset-2 col-md-8">
+        <div class="col-sm-6">
             <h3>Ready to get bidding?</h3>
             <br />
             <a href="@Url.Action("NewBid","Home")"><button type="button" class="btn btn-primary btn-lg">Bid on an Item!</button></a>
-            <hr />
-            <br />
+        </div> 
+        <div class="col-sm-6">
             <h3>Take a look at the current list of items.</h3>
             <br />
             <a href="@Url.Action("Index","Items")"><button type="button" class="btn btn-primary btn-lg">Items</button></a>
         </div>
     </div>
-</div>
+</div><hr /><br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Item.ItemName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Buyer.BuyerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Timestamp)
+        </th>
+    </tr>
+
+    @foreach (var bid in Model)
+    {
+        <tr>
+            <th>
+                @Html.DisplayFor(current => bid.ItemID)
+            </th>
+            <th>
+                @Html.ActionLink(bid.Item.ItemName, "Details", "Items", new { id = bid.Item.ItemID }, null)
+            </th>
+            <th>
+                @Html.DisplayFor(current => bid.Buyer.BuyerName)
+            </th>
+            <th>
+                @Html.DisplayFor(current => bid.Price)
+            </th>
+            <th>
+                <!-- This is to convert the DateTime to hour format -->
+                @if (bid.Timestamp.Date == DateTime.Today)
+                {
+                    @(string.Format("{0:T}", bid.Timestamp))
+                }
+                else
+                {
+                    @Html.DisplayFor(current => bid.Timestamp)
+                }
+            </th>
+        </tr>
+    }
+</table>

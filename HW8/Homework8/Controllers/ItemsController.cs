@@ -140,10 +140,11 @@ namespace Homework8.Controllers
                 .OrderByDescending(d => d.Price)
                 .ToList();
 
+            // New class object to grab Name (Buyer) and Price (Bid)
             List<GrabTheBids> bidTable = new List<GrabTheBids>();
-
             GrabTheBids tmp;
 
+            // Fill that up with the Buyer name and the current bid Prices
             foreach (Bid bid in bids)
             {
                 tmp = new GrabTheBids
@@ -154,8 +155,20 @@ namespace Homework8.Controllers
                 bidTable.Add(tmp);
             }
 
+            // Convert back to a json object to send through
             string toJson = JsonConvert.SerializeObject(bidTable, Newtonsoft.Json.Formatting.Indented);
             return Json(toJson, JsonRequestBehavior.AllowGet);
         }
+
+        // Can it be simplier? Short Answer is no...
+        //public JsonResult GrabBids(int? id)
+        //{
+        //    var bids = db.Bids.Where(a => a.Item.ItemID == id)
+        //        .Select(a => new { Buyer = a.Buyer.BuyerName, Price = a.Price })
+        //        .OrderByDescending(d => d.Price)
+        //        .ToList();
+
+        //    return Json(bids, JsonRequestBehavior.AllowGet);
+        //}
     }
 }
