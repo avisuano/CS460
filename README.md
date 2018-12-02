@@ -33,6 +33,9 @@ I have repositories here: [GitHub](https://github.com/avisuano/CS460) and here: 
     - Requirements can be found [here](http://wou.edu/~morses/classes/cs46x/assignments/HW7_1819.html).
     - The journey can be found [here](https://avisuano.github.io/CS460/HW7/).    
 8. **Homework Eight - MVC app 5, DIY multi-table/relational dB**
-    - Requirements can be found [here](http://wou.edu/~morses/classes/cs46x/assignments/HW8_1819.html).    
+    - Requirements can be found [here](http://wou.edu/~morses/classes/cs46x/assignments/HW8_1819.html).   
+    - The blog can be found [here](https://avisuano.github.io/CS460/HW8/)
 9. **Homework Nine - MVC app 6, Cloud Deployment**
     - Requirements can be found [here](http://wou.edu/~morses/classes/cs46x/assignments/HW9_1819.html).
+    - Screen shots can be found [here](https://avisuano.github.io/CS460/HW9/)
+    - Working website (uuuugly) can be found [here](http://hw8app.azurewebsites.net/)
