@@ -144,8 +144,9 @@ The next step was installing OBS and try to record a video of it actually workin
 
 The quality of the video is very poor, I just could not get OBS working correctly. I used a Chrome extension to record the video and hopefully it actually displays correctly. Boy oh boy is this website ugly. I definitely need to work on my design skills over winter break!
 
-[![work!](https://github.com/avisuano/CS460/blob/master/HW8/thumbnail.PNG)](https://www.useloom.com/share/a6b869b0b0604bf6b2b7b6821de5ac7c)
+[![work!](https://avisuano.github.io/CS460/HW8/thumbnail.PNG)](https://www.useloom.com/share/a6b869b0b0604bf6b2b7b6821de5ac7c)
+
 
 Oh and of course the E-R diagram for the database!
 
-![finished](https://github.com/avisuano/CS460/blob/master/HW8/ERDigram.PNG)
+![finished](https://avisuano.github.io/CS460/HW8/ERDiagram.PNG)
