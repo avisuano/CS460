@@ -39,3 +39,115 @@ I have repositories here: [GitHub](https://github.com/avisuano/CS460) and here: 
     - Requirements can be found [here](http://wou.edu/~morses/classes/cs46x/assignments/HW9_1819.html).
     - Screen shots can be found [here](https://avisuano.github.io/CS460/HW9/)
     - Working website (uuuugly) can be found [here](http://hw8app.azurewebsites.net/)
+
+***
+
+## Notes for the final
+
+GitHub [cheat sheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
+
+Bootstrap [documentation](https://getbootstrap.com/docs/3.3/css/)
+
+JQuery [cheat sheet](https://oscarotero.com/jquery/)
+
+Javascript [and strings](https://www.digitalocean.com/community/tutorials/how-to-index-split-and-manipulate-strings-in-javascript)
+
+C# [and strings](http://www.csharp-examples.net/string-format-datetime/)
+
+LINQ [cheat sheet](https://weblogs.asp.net/bradvincent/linq-cheat-sheet)
+
+Razor [cheat sheet](https://haacked.com/archive/2011/01/06/razor-syntax-quick-reference.aspx/)
+
+.NET [API](https://docs.microsoft.com/en-us/dotnet/api/index?view=netframework-4.7.2)
+
+UP and DOWN script from Homework 8 for a syntax guide/reminder
+```sql
+------------------
+-- BUYERS TABLE --
+------------------
+CREATE TABLE [dbo].[Buyers]
+(
+	BuyerID		INT	IDENTITY(1,1) NOT NULL,
+	BuyerName	NVARCHAR(32) NOT NULL,
+	CONSTRAINT[PK_dbo.Buyers] PRIMARY KEY CLUSTERED (BuyerID ASC)
+);
+
+-------------------
+-- SELLERS TABLE --
+-------------------
+CREATE TABLE [dbo].[Sellers]
+(
+	SellerID	INT IDENTITY(1,1) NOT NULL,
+	SellerName	NVARCHAR(32) NOT NULL,
+	CONSTRAINT[PK_dbo.Sellers] PRIMARY KEY CLUSTERED (SellerID ASC)
+);
+
+-----------------
+-- ITEMS TABLE --
+-----------------
+CREATE TABLE [dbo].[Items]
+(
+	ItemID			INT IDENTITY(101,1) NOT NULL,
+	ItemName		NVARCHAR(32) NOT NULL,
+	ItemDescription	NVARCHAR(500) NOT NULL,
+	SellerID		INT	NOT NULL,
+	CONSTRAINT[PK_dbo.Items] PRIMARY KEY CLUSTERED (ItemID ASC),
+	CONSTRAINT[FK_dbo.Items] FOREIGN KEY (SellerID) REFERENCES Sellers(SellerID)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
+);
+
+----------------
+-- BIDS TABLE --
+----------------
+CREATE TABLE [dbo].[Bids]
+(
+	BidID		INT	IDENTITY(1,1)	NOT NULL,
+	ItemID		INT	NOT NULL,
+	BuyerID		INT	NOT	NULL,
+	Price		DECIMAL	NOT NULL,
+	[Timestamp]	DATETIME	NOT NULL,
+	CONSTRAINT[PK_dbo.Bids]	 PRIMARY KEY CLUSTERED (BidID ASC),
+	CONSTRAINT[FK1_dbo.Bids] FOREIGN KEY (ItemID) REFERENCES Items(ItemID)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
+	CONSTRAINT[FK2_dbo.Bids] FOREIGN KEY (BuyerID) REFERENCES Buyers(BuyerID)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
+);
+
+--------------------------------
+-- SOME SILLY/GENERIC ITEMS --
+--------------------------------
+INSERT INTO [dbo].[Buyers](BuyerName) VALUES
+	('John Smith'),
+	('Franklin Rose'),
+	('Lourie Joe')
+
+INSERT INTO [dbo].[Sellers](SellerName) VALUES
+	('Mary Ann'),
+	('Jon Appleton')
+
+INSERT INTO [dbo].[Items](ItemName,ItemDescription, SellerID) VALUES
+	('Blob of Gum','An 18 year old collection of used gum!',1),
+	('Space Gun','A working space lazer pistol! May cause burns, skin irritation, and blindness',2),
+	('Painting','Painting from a young, ungifted child',2)
+
+  ----------------------
+  -- CLEAR THE TABLES --
+  ----------------------
+  DROP TABLE IF EXISTS [dbo].[Bids]
+  DROP TABLE IF EXISTS [dbo].[Buyers]
+  DROP TABLE IF EXISTS [dbo].[Items]
+  DROP TABLE IF EXISTS [dbo].[Sellers]
+```
+
+Generate an Entity Relationship Diagram
+  1. Go to SMMS >
+  2. Object Explorer >
+  3. Databases >
+  4. Choose your database
+  5. Right click -> 'Database Diagrams' -> 'New Database Diagram'
+  6. Choose the tables from the menu
+  7. Add
+  8. Finished
