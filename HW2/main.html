@@ -10,49 +10,34 @@
   </head>
 <body>
   <h1 class="hello">PIZZA ORDER FORM!</h1><br>
-  <form id="customer_input" method="post">
-  <div class="outer">
-    <h5 id="space">SIZE</h5>
-    <div class="row">
-      <div class="column1">
-        <h6>Small </h6>
-        <h6>Medium </h6>
-        <h6>Large </h6>
-      </div>
-      <div class="column1">
-        <h6>$10.00  <input type="radio"name="size" id="sml"></input></h6>
-        <h6>$13.00  <input type="radio"name="size" id="med"></input></h6>
-        <h6>$18.00  <input type="radio"name="size" id="lrg"></input></h6>
-      </div>
-    </div><br>
-    <h5 id="space">SAUCE</h5>
-    <div class="row">
-      <div class="column1">
-        <h6>Marinara </h6>
-        <h6>Garlic Pesto </h6>
-        <h6>White </h6>
-      </div>
-      <div class="column1">
-        <h6>$0.00 <input type="radio"name="size" id="marinara"></input></h6>
-        <h6>$1.50 <input type="radio"name="size" id="garlic"></input></h6>
-        <h6>$1.00 <input type="radio"name="size" id="white"></input></h6>
-      </div>
-    </div><br>
-    <h5 id="space">TOPPINGS</h5>
-    <div class="row">
-      <div class="column1">
-        <h6>Pepperoni </h6>
-        <h6>Olives </h6>
-        <h6>Bacon </h6>
-      </div>
-      <div class="column1">
-        <h6>$1.00 <input type="checkbox" name="toppings" id="pep"></input></h6>
-        <h6>$0.50 <input type="checkbox" name="toppings" id="oli"></input></h6>
-        <h6>$1.75 <input type="checkbox" name="toppings" id="bac"></input></h6>
-      </div>
-    </div><br>
-  </div>
-
+<div class="row">
+   <form name="orderForm">
+    <div class="col-md-6">
+       
+        <h4>Size</h4>
+        <input type="radio" name="size" id="lrg"><label for="lrg">Large</label><br>
+        <input type="radio" name="size" id="med"><label for="med">Medium</label><br>
+        <input type="radio" name="size" id="sml"><label for="sml">Small</label><br>
+        
+        <h4>Sauce</h4>
+        <input type="radio" name="sauce" id="mar"><label for="mar">Marinara</label><br>
+        <input type="radio" name="sauce" id="gar"><label for="gar">Garlic</label><br>
+        
+        <h4>Toppings</h4>
+        <input type="checkbox" name="tops" id="pep"><label for="pep">Pepperoni</label><br>
+        <input type="checkbox" name="tops" id="oli"><label for="oli">Olives</label><br>
+        <input type="checkbox" name="tops" id="mus"><label for="mus">Mushrooms</label><br>
+        <input type="checkbox" name="tops" id="sau"><label for="sau">Sausage</label><br>
+        
+        <input type="submit" value="Submit Order">
+    </div>
+    </form>
+    <div class="order">
+        <center>
+            <h4></h4>
+        </center>
+    </div>
+</div>
 
 
 
