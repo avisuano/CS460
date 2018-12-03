@@ -1,0 +1,35 @@
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+.hello {
+  padding-left: 30px;
+  color: white;
+  background-color: lightblue;
+  outline-style: ridge;
+  outline-color: black;
+}
+
+.column1 {
+  margin: 10px;
+  padding: 10px;
+  float: right;
+  border: solid;
+  border-width: 1px;
+  border-radius: 15px;
+}
+.row {
+  margin-left: 10px;
+  border: solid;
+  border-width: 1px;
+  border-radius: 15px;
+  width: 250px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
