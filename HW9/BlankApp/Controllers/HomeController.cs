@@ -14,7 +14,7 @@ namespace BlankApp.Controllers
 
         public ActionResult Index()
         {
-            return View(db.SimpleTables.OrderByDescending(a => a.LastName).ToList());
+            return View(db.SimpleTables.ToList());
         }
         
         // GET: SimpleTables/Create
