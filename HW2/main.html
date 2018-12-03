@@ -70,32 +70,6 @@
 </table>
 </div>
 
-<table class-"pizza" style="width:50%;">
-  <tbody>
-    <tr>
-      <td id="size"></td>
-      <td id="sizePrice"></td>
-    </tr>
-    <tr>
-      <td id="sauce"></td>
-      <td id="saucePrice"></td>
-    </tr>
-    <tr>
-      <td id="meat"></td>
-      <td id="meatPrice"></td>
-    </tr>
-    <tr>
-      <td id="veg"></td>
-      <td id="vegPrice"></td>
-    </tr>
-    <tr>
-      <td><strong>Total:</strong></td>
-      <td id="total"></td>
-    </tr>
-  </tbody>
-</table>
-
-
 <!--- Javascript / JQuery  --->
 
 <script>
@@ -173,7 +147,7 @@
                   };
               };
           };
-
+          vegPrice = vegSelect.length * 1.1;
           // Total everything up
           var totalPrice = (sizePrice + saucePrice + meatPrice + vegPrice);
 
