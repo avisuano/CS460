@@ -53,7 +53,7 @@ CREATE TABLE [dbo].[Bids]
 );
 
 --------------------------------
--- SOME DEFAULT/GENERIC ITEMS --
+-- SOME SILLY/GENERIC ITEMS --
 --------------------------------
 INSERT INTO [dbo].[Buyers](BuyerName) VALUES
 	('John Smith'),
