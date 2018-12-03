@@ -1,81 +1,51 @@
 ﻿@model Homework8.Models.Item
 
 @{
+
     ViewBag.Title = "Details";
 }
 
-<h2>Item Details Page</h2>
+<h2>Item details</h2>
 
 <div>
-    <h4>Item</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Seller.Name)
+            @Html.DisplayNameFor(model => model.Seller.SellerName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Seller.Name)
+            @Html.DisplayFor(model => model.Seller.SellerName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.ItemName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.ItemName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.ItemDescription)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Description)
+            @Html.DisplayFor(model => model.ItemDescription)
         </dd>
+
+        <!-- This is only to grab the item id to use for the script... there's got a be an easier way -->
+        <dt>@Html.DisplayNameFor(model => model.ItemID)</dt>
+        <dd id="itemId" value="@Model.ItemID">@Html.DisplayFor(model => model.ItemID)</dd>
     </dl>
-    <!-- Need a spot to display items -->
-    <span class="hidden" id="itemSpan">@Model.ItemID</span>
-    <div id="display">
-
-    </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ItemID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
 
-@Scripts.Render("~/bundles/jquery")
-<script>
-    window.setInterval(ajax_update, 3000);
+<table class="displayBids"> </table>
 
-    function ajax_update()
-    {
-        var id = @Model.ItemID;
-        $ajax
-            ({
-                type: 'GET',
-                dataType: 'JSON',
-                url: 'Items/ListBids/' + id,
-                data: { id: id },
-                success: displayList,
-                error: oops
-            });
-    }
-
-    function displayList(data)
-    {
-        $('#display').empty();
-        var item = document.getElementById("display");
-        data.updated.forEach(function (item)
-        {
-            $('#display').append(item)
-        })
-        console.log(data);
-    }
-
-    function oops()
-    {
-        console.log("Oops, something went wrong.");
-    }
-</script>
+@section scripts
+{
+    <script src="~/Scripts/updateBids.js"></script>
+}

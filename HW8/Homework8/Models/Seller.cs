@@ -14,11 +14,13 @@ namespace Homework8.Models
             Items = new HashSet<Item>();
         }
 
+        [Display(Name = "Seller Id:")]
         public int SellerID { get; set; }
 
         [Required]
         [StringLength(32)]
-        public string Name { get; set; }
+        [Display(Name = "Seller Name:")]
+        public string SellerName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Item> Items { get; set; }

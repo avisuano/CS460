@@ -14,16 +14,20 @@ namespace Homework8.Models
             Bids = new HashSet<Bid>();
         }
 
+        [Display(Name = "Item Id:")]
         public int ItemID { get; set; }
 
         [Required]
         [StringLength(32)]
-        public string Name { get; set; }
+        [Display(Name = "Item name: ")]
+        public string ItemName { get; set; }
 
         [Required]
         [StringLength(500)]
-        public string Description { get; set; }
+        [Display(Name = "Description:")]
+        public string ItemDescription { get; set; }
 
+        [Display(Name = "Seller Id:")]
         public int SellerID { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
