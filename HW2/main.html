@@ -11,38 +11,181 @@
 <body>
   <h1 class="hello">PIZZA ORDER FORM!</h1><br>
 <div class="row">
-   <form name="orderForm">
-    <div class="col-md-6">
-       
-        <h4>Size</h4>
-        <input type="radio" name="size" id="lrg"><label for="lrg">Large</label><br>
-        <input type="radio" name="size" id="med"><label for="med">Medium</label><br>
-        <input type="radio" name="size" id="sml"><label for="sml">Small</label><br>
-        
-        <h4>Sauce</h4>
-        <input type="radio" name="sauce" id="mar"><label for="mar">Marinara</label><br>
-        <input type="radio" name="sauce" id="gar"><label for="gar">Garlic</label><br>
-        
-        <h4>Toppings</h4>
-        <input type="checkbox" name="tops" id="pep"><label for="pep">Pepperoni</label><br>
-        <input type="checkbox" name="tops" id="oli"><label for="oli">Olives</label><br>
-        <input type="checkbox" name="tops" id="mus"><label for="mus">Mushrooms</label><br>
-        <input type="checkbox" name="tops" id="sau"><label for="sau">Sausage</label><br>
-        
-        <input type="submit" value="Submit Order">
+  <div id="box">
+    <div class="sizes">
+      <h4 id="space">Size</h4>
+      <input type="radio" name="size" value="Large"> Large <br>
+      <input type="radio" name="size" value="Medium"> Medium <br>
+      <input type="radio" name="size" value="Small"> Small <br>
     </div>
-    </form>
-    <div class="order">
-        <center>
-            <h4></h4>
-        </center>
+  </div>
+  <div id="box">
+    <div class="sauces">
+      <h4 id="space">Sauce</h4>
+      <input type="radio" name="sauce" value="Marinara"> Marinara <br>
+      <input type="radio" name="sauce" value="Garlic"> Garlic <br>
+      <input type="radio" name="sauce" value="Spicy"> Spicy <br>
     </div>
+  </div>
+  <div id="box">
+      <h4 id="space">Toppings</h4>
+      <div class="meats">
+        <h6 id="space">Meat</h6>
+        <input type="checkbox" name="meat" value="Pepperoni"> Pepperoni <br>
+        <input type="checkbox" name="meat" value="Bacon"> Bacon <br>
+        <input type="checkbox" name="meat" value="Sausage"> Sausage <br>
+      </div>
+      <div class="veggies">
+        <h6 id="space">Veggies</h6>
+        <input type="checkbox" name="veg" value="Olives"> Olives <br>
+        <input type="checkbox" name="veg" value="Mushrooms"> Mushrooms <br>
+        <input type="checkbox" name="veg" value="Green Peppers"> Green Peppers <br>
+    </div>
+  </div>
+  <div class="sub"><button id="calculate" type="submit" onclick="getOrder()">Submit Order</button></div>
+<br>
+<table class-"pizza" style="width:50%;">
+  <tbody>
+    <tr>
+      <td id="size"></td>
+      <td id="sizePrice"></td>
+    </tr>
+    <tr>
+      <td id="sauce"></td>
+      <td id="saucePrice"></td>
+    </tr>
+    <tr>
+      <td id="meat"></td>
+      <td id="meatPrice"></td>
+    </tr>
+    <tr>
+      <td id="veg"></td>
+      <td id="vegPrice"></td>
+    </tr>
+    <tr>
+      <td><strong>Total:</strong></td>
+      <td id="total"></td>
+    </tr>
+  </tbody>
+</table>
 </div>
 
+<table class-"pizza" style="width:50%;">
+  <tbody>
+    <tr>
+      <td id="size"></td>
+      <td id="sizePrice"></td>
+    </tr>
+    <tr>
+      <td id="sauce"></td>
+      <td id="saucePrice"></td>
+    </tr>
+    <tr>
+      <td id="meat"></td>
+      <td id="meatPrice"></td>
+    </tr>
+    <tr>
+      <td id="veg"></td>
+      <td id="vegPrice"></td>
+    </tr>
+    <tr>
+      <td><strong>Total:</strong></td>
+      <td id="total"></td>
+    </tr>
+  </tbody>
+</table>
+
+
 <script>
-    $(document).ready(function({
-        
-    });    
+        function getOrder(){
+
+          // get the size price
+          var size = document.querySelector('input[name="size"]:checked').value;
+          var sizePrice = 0;
+          if (size === "Large") { sizePrice = 13; }
+          if (size === "Medium") { sizePrice = 10; }
+          if (size === "Small") { sizePrice = 9;}
+
+          // get the sauce price
+          var sauce = document.querySelector('input[name="sauce"]:checked').value;
+          var saucePrice = 0;
+          if (sauce === "Marinara") { saucePrice = 0; }
+          if (sauce === "Garlic") { saucePrice = 1; }
+          if (sauce === "Spicy") { saucePrice = 1;}
+
+          // get the meat price(s)
+          var meat = document.getElementsByName("meat");
+          var meatSelect[];
+          var meatChoice = "";
+          var meatPrice = 0;
+
+          // check the checkboxes
+          for (var i =0; i < meat.length; i++)
+          {
+            if(meat[i].checked)
+              {
+                 meatSelect.push(meat[i].value);
+              };
+          };
+          // Start the process to find the meat price...
+          if(meatSelect.length === 0) { meatChoice = "No meat selected."; }
+          if(meatSelect.length === 1) { meatChoice = meatSelect[0]; }
+          else if (meatSelect > 1)
+          {
+                for (i = 0; i < meatSelect.length; i++)
+                {
+                        meatChoice += meatSelect[i];
+                        if(i < meatSelect.length - 1)
+                        {
+                            meatChoice += ", ";
+                        };
+                };
+          };
+          meatPrice = meatSelect.length * 1.5;
+
+          // get the veggie price(s)
+          var veg = document.getElementsByName("veg")
+          var vegPrice = 0;
+          var vegSelect = [];
+          var vegChoice = "";
+
+          // check the checkboxes
+          for (var i = 0; i < vegSelect.length; i++)
+          {
+              if (veg[i].checked)
+              {
+                  vegSelect.push(veg[i].value);
+              };
+          };
+
+          if (vegSelect === 0) { vegChoice = "No vegetables selected."; }
+          if (vegSelect === 1) { vegChoice = vegSelect[0]; }
+          else if (vegSelect.length > 1)
+          {
+              for(i = 0; i < vegSelect.length; i ++)
+              {
+                  vegChoice += vegSelect[i];
+                  if(i < vegSelect.length - 1)
+                  {
+                    vegChoice += ", ";
+                  };
+              };
+          };
+
+          // Total everything up
+          var totalPrice = (sizePrice + saucePrice + meatPrice + vegPrice);
+
+          // Push the values to the table
+          $('#size').html(size+" Pizza");
+          $('#sizePrice').html(" $"+sizePrice+".00");
+          $('#sauce').html(suace + " Sauce");
+          $('#saucePrice').html("+" +saucePrice+".00");
+          $('#meat').html(meatChoice);
+          $('#meatPrice').html("+" +meatPrice+".00");
+          $('#veg').html(vegChoice);
+          $('#vegPrice').html("+" +vegPrice+".00");
+          $('#total').html(" $"+totalPrice+".00");
+        };
 </script>
 
 

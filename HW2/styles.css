@@ -33,3 +33,16 @@
     display: table;
     clear: both;
 }
+
+#space{
+  margin-left: 10px;
+}
+
+#box{
+  margin:10px;
+  width: auto;
+}
+
+.sub{
+  margin-left: 80px;
+}
