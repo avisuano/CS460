@@ -1,0 +1,32 @@
+﻿@model IEnumerable<BlankApp.Models.SimpleTable>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <center><h1>Just a simple page</h1></center>
+</div>
+
+<table class="simple">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+    </tr>
+
+    @foreach (var person in Model)
+    {
+    <tr>
+        <th>
+            @Html.DisplayFor(model => person.FirstName)
+        </th>
+        <th>
+            @Html.DisplayFor(model => person.LastName)
+        </th>
+    </tr>
+    }
+</table>
