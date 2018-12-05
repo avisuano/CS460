@@ -4,7 +4,7 @@
 }
 
 <div class="jumbotron">
-    <center><h2>Welcome to the Online Art Database</h2></center>
+    <center><h2 style="font-family:'Franklin Gothic Medium';">Welcome to the Online Art Database</h2></center>
 </div>
 
 <div class="row">
@@ -17,21 +17,15 @@
         }
     </div><br />
 
-    <!-- Output for each button-->
-    <div class="row">
-        <div id="output" class="text-center col-lg-12"></div>
-    </div><br />
-
     <!-- Attempt at making a dropdown menu version -->
     <div class="text-center col-lg-12">
         <select id="selectGenre">
             @foreach (var item2 in Model)
             {
-                <option value="@item2.GenreName" selected="ListGenre(@item2.ID)">@item2.GenreName</option>
+                <option value="@item2.GenreName" onclick="ListGenre(@item2.ID)">@item2.GenreName</option>
             }
         </select><br />
-    </div>
-    
+    </div><br />    
     <!-- For the display -->
     <div class="row">
             <div id="output" class="text-center col-lg-12"></div>
