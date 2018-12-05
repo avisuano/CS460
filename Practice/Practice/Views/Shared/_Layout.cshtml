@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Poor Online Art Database</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "")">@Html.ActionLink("Home", "Index", "Home", null, null)</li>
+                    <li class="dropdown @(ViewContext.RouteData.Values["Controller"].ToString() == "Artists" ? "active" : "")">
+                        <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Artists <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("View", "Index", "Artists")</li>
+                            <li>@Html.ActionLink("Create", "Create", "Artists")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown @(ViewContext.RouteData.Values["Controller"].ToString() == "Artworks" ? "active" : "")">
+                        <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Artworks <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("View", "Index", "Artworks")</li>
+                            <li>@Html.ActionLink("Create", "Create", "Artworks")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown @(ViewContext.RouteData.Values["Controller"].ToString() == "Classifications" ? "active" : "")">
+                        <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Classifications <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("View", "Index", "Classifications")</li>
+                            <li>@Html.ActionLink("Create", "Create", "Classifications")</li>
+                        </ul>
+                    </li>
+                    @*<li class="dropdown @(ViewContext.RouteData.Values["Controller"].ToString() == "Genres" ? "active" : "")">
+                        <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Genres <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("View", "Index", "Genres")</li>
+                            <li>@Html.ActionLink("Create", "Create", "Genres")</li>
+                        </ul>
+                    </li>*@
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

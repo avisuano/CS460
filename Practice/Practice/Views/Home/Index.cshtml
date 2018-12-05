@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Practice.Models.Genre>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <center><h2>Welcome to the Online Art Database</h2></center>
+</div>
+
+<div class="row">
+
+    <!-- Buttons to display each Artwork and Artist-->
+    <div class="text-center col-lg-12">
+        @foreach (var item in Model)
+        {
+            <intput type="button" class="btn btn-primary" value="@item.GenreName" onclick="ListGenre(@item.ID)">@item.GenreName</intput>
+        }
+    </div><br />
+
+    <!-- Output for each button-->
+    <div class="row">
+        <div id="output" class="text-center col-lg-12"></div>
+    </div><br />
+
+    <!-- Attempt at making a dropdown menu version -->
+    <div class="text-center col-lg-12">
+        <select id="selectGenre">
+            @foreach (var item2 in Model)
+            {
+                <option value="@item2.GenreName" selected="ListGenre(@item2.ID)">@item2.GenreName</option>
+            }
+        </select><br />
+    </div>
+    
+    <!-- For the display -->
+    <div class="row">
+            <div id="output" class="text-center col-lg-12"></div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/ListGenre.js"></script>
+}

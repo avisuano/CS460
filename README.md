@@ -52,6 +52,8 @@ JQuery [cheat sheet](https://oscarotero.com/jquery/)
 
 Javascript [and strings](https://www.digitalocean.com/community/tutorials/how-to-index-split-and-manipulate-strings-in-javascript)
 
+Javascript [amazing cheat sheet](https://htmlcheatsheet.com/js/)
+
 C# [and strings](http://www.csharp-examples.net/string-format-datetime/)
 
 LINQ [cheat sheet](https://weblogs.asp.net/bradvincent/linq-cheat-sheet)
