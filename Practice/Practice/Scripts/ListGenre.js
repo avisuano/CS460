@@ -2,7 +2,7 @@
 {
     $.ajax({
         type: "GET",
-        url: "/Home/Genre/" + id,
+        url: "/Home/GetGenre/" + id,
         dataType: "json",
         success: function (data) { push(data); },
         error: function (data) { alert("Something went terribly wrong, please contact someone who knows something."); }

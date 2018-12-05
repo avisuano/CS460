@@ -19,7 +19,7 @@ namespace Practice.Controllers
         }
 
         // Get a Json list result of the artist name and title based on Genre ID
-        public JsonResult Genre(int? id)
+        public JsonResult GetGenre(int? id)
         {
             List<Results> list = new List<Results>();
             Results tmp;
