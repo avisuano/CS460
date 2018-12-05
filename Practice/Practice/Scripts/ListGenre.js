@@ -14,13 +14,7 @@ function push(data)
     $('#output').empty();
     var str = "<dl>"
     $.each(data, function (i, item) {
-        str = str
-            + "<dt>"
-            + item["artwork"]
-            + "</dt>"
-            + "<dd> by "
-            + item["artist"]
-            + "</dd>";
+        str = str + "<dt>" + item["artwork"] + " <dd> by  " + item["artist"] + "</dd>" + "</dt>"
     });
     str += "</dl>"
     $('#output').append(str);

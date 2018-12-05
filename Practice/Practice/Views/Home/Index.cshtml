@@ -24,6 +24,7 @@
     <!-- Attempt at making a dropdown menu version -->
     <div class="text-center col-lg-12">
         <select id="selectGenre">
+            <option value="" disabled selected>-- Select Genre --</option>
             @foreach (var item2 in Model)
             {
                 <option value="@item2.GenreName" onclick="ListGenre(@item2.ID)">@item2.GenreName</option>

@@ -22,6 +22,7 @@ namespace Practice.Controllers
         public JsonResult Genre(int? id)
         {
             List<Results> list = new List<Results>();
+            Results tmp;
 
             var artList = db.Genres.Where(a => a.ID == id)
                             .Select(b => b.Classifications)
@@ -31,10 +32,11 @@ namespace Practice.Controllers
 
             foreach (var art in artList)
             {
-                Results tmp = new Results();
-
-                tmp.artist = art.Artwork.Artist.ArtistName;
-                tmp.artwork = art.Artwork.Title;
+                tmp = new Results()
+                {
+                    artist = art.Artwork.Artist.ArtistName,
+                    artwork = art.Artwork.Title,
+                };
 
                 list.Add(tmp);
             }
